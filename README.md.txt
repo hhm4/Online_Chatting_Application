@@ -1,0 +1,1 @@
+This repository contains all the php and java code for our online chatting application
