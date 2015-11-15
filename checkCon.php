@@ -8,7 +8,7 @@
 
 // Same as error_reporting(E_ALL);
 
-$con=mysql_connect('sql2.njit.edu','hhm4','wKx8jxKXx');
+$con=mysql_connect();
 if(!$con)
 {
 	print "Not connected";
