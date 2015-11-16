@@ -1,6 +1,7 @@
 <?php
 
-$config=parse_ini_file('/afs/cad/u/h/h/hhm4/mysql.ini');
+$config=parse_ini_file("/afs/cad/u/h/h/hhm4/mysql.ini","false","true");
+
 echo $config['host'];
 echo $config['username'];
 echo $config['password'];
