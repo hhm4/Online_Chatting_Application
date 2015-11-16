@@ -13,9 +13,6 @@ $password = $userInfo->Password;
 $email1=$userInfo->Email;
 
 $sql=mysql_query("CALL Register_NewUser('$username','$email1','$password');", $con);
-while($row = mysql_fetch_assoc($sql))
-{
-echo $row['UserId'];
-}
+echo "Success123";
 
 ?>
