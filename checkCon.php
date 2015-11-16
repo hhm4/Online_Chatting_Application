@@ -1,6 +1,6 @@
 <?php
 
-$config=parse_ini_file("/afs/cad/u/h/h/hhm4/mysql.ini",false,true);
+$config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/mysql.ini",false,true);
 if (parse_ini_file("/afs/cad/u/h/h/hhm4/mysql.ini",false,true)){
 	print 'hari';
 }
