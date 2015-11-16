@@ -1,6 +1,10 @@
 <?php
 
 $config=parse_ini_file('/afs/cad/u/h/h/hhm4/.my.cnf');
+echo $config['host'];
+echo $config['username'];
+echo $config['password'];
+echo $config['database'];
 $con=mysql_connect($config['host'],$config['username'],$config['password']);
 if(!$con)
 {
