@@ -7,13 +7,13 @@
 // Report all errors except E_NOTICE
 
 // Same as error_reporting(E_ALL);
-
-$con=mysql_connect();
+$config=parse_ini_file('/afs/cad/u/h/h/hhm4/.my.cnf');
+$con=mysql_connect($config['host'],$config['username'],$config['password']);
 if(!$con)
 {
 	print "Not connected";
 }
-$dbCon=mysql_select_db('hhm4', $con);
+$dbCon=mysql_select_db($config['database'], $con);
 print "connected".$dbCon;
 $sql=mysql_query('SELECT GroupName FROM CHATROOM_USERS', $con);
 
