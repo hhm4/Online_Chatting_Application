@@ -1,23 +1,19 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"]=="POST")
-{
-	
-	require 'checkCon.php';
-	sign_up();
-}
+$config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
+$con=mysql_connect($config['host'],$config['username'],$config['password']);
+sign_up();
+
 
 function sign_up()
 {
 	global $connect;
-	$json_string = $_POST['userInfo'];
-	$userInfo = json_decode($json_string);
-	$emailID = $userInfo->emailID;
-	$username = $userInfo->username;
-	$password = $userInfo->Password;
-	$result= mysql_query('CALL Register_NewUser($userInfo,$emailID,$password)',$con);
-
-	
+	//$json_string = $_POST['userInfo'];
+	//$userInfo = json_decode($json_string);
+	$emailID = 'hi';
+	$username = 'hello';
+	$password = 'qwerty';
+	$result= mysql_query('CALL Register_NewUser($username,$emailID,$password)',$con);
 	
 	if($result>0)
 		
