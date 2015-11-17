@@ -10,11 +10,9 @@ $email='gggg';
 $pwd='123';
 $dbCon=mysqli_select_db($config['database'], $con);
 print "connected".$dbCon;
-$sql=mysqli_prepare('CALL Register_User(?,?,?)', $con);
-mysqli_stmt_bind_param($usernam,$email,$pwd);
-mysqli_stmt_execute($sql);
-while($row = mysqli_fetch_assoc($sql))
+$sql=mysqli_query('CALL TESTING()', $con);
+while($row = $sql->fetch_object())
 {
-echo $row['UserIds'];
+debug($row);
 }
 ?>
