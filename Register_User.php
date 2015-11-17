@@ -17,7 +17,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 	$query = " Insert into hhm4.USERS(UserName, EmailId, User_Password) values('$username', '$emailID', '$password')";
 	
 	
-	$count=mysql_query($connect,$query) or die(mysql_error($connect)) or die(mysql_error());
+	$count=mysql_query($query,$con) or die(mysql_error($con)) or die(mysql_error());
 	
 	if($count>0)
 		
