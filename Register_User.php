@@ -7,7 +7,7 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 print "connected".$dbCon;
-$sql=mysql_query('CALL TESTING()', $con);
+$sql=mysql_query('CALL Register_Test('a','b','c')', $con);
 while($row = mysql_fetch_assoc($sql))
 {
 echo $row['GroupName'];
