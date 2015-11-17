@@ -13,7 +13,7 @@ print "connected".$dbCon;
 $sql=mysqli_prepare('CALL Register_User(?,?,?)', $con);
 mysqli_stmt_bind_param($usernam,$email,$pwd);
 mysqli_stmt_execute($sql);
-while($row = mysql_fetch_assoc($sql))
+while($row = mysqli_fetch_assoc($sql))
 {
 echo $row['UserIds'];
 }
