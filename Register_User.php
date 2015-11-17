@@ -11,7 +11,7 @@ $emailID = 'jiljungjak@jj.com';
 $username = 'shoot the kuruvi';
 $password = 'radha ravi';
 	
-	$query = mysql_query('CALL Register_Test($username,$emailID,$password)',$con);
+	$query = mysql_query('CALL TESTING()',$con);
 	while($row = mysql_fetch_assoc($query))
    {
      echo $row['USERNAME'];
