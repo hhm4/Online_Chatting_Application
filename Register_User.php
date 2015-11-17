@@ -1,6 +1,6 @@
 <?php
 $config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
-$con=mysql_connect($config['host'],$config['username'],$config['password']);
+$con=mysqli_connect($config['host'],$config['username'],$config['password']);
 if(!$con)
 {
 	print "Not connected";
@@ -8,11 +8,11 @@ if(!$con)
 $usernam= 'rrr';
 $email='gggg';
 $pwd='123';
-$dbCon=mysql_select_db($config['database'], $con);
+$dbCon=mysqli_select_db($config['database'], $con);
 print "connected".$dbCon;
-$sql=mysql_query('CALL Register_Test('$usernam','$email','$pwd')', $con);
+$sql=mysqli_prepare('CALL TESTING()', $con);
 
-while($row = mysql_fetch_assoc($sql))
+while($row = mysqli_fetch_array($sql,MYSQLI_ASSOC))
 {
 echo $row['UserName'];
 }
