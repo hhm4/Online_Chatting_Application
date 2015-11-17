@@ -15,6 +15,6 @@ mysqli_stmt_bind_param($usernam,$email,$pwd);
 mysqli_stmt_execute($sql);
 while($row = mysql_fetch_assoc($sql))
 {
-echo $row['GroupName'];
+echo $row['UserIds'];
 }
 ?>
