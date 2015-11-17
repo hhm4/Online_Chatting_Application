@@ -10,6 +10,6 @@ print "connected".$dbCon;
 $sql=mysql_query('CALL TESTING()', $con);
 while($row = mysql_fetch_assoc($sql))
 {
-echo $row['UserName'];
+echo $row['GroupName'];
 }
 ?>
