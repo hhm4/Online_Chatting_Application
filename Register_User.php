@@ -7,7 +7,10 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 print "connected".$dbCon;
-$sql=mysql_query('CALL Testing()', $con);
+$emailID = 'fff@fff';
+$username = 'ddd';
+$password = 'ddd';
+$sql=mysql_query('CALL Register_Test($emailID,$username,$password)', $con);
 while($row = mysql_fetch_assoc($sql))
 {
 echo $row['UserIds'];
