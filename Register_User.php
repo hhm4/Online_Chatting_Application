@@ -15,9 +15,4 @@ if(!(mysql_query('CALL TESTING($usernam,$email,$pwd)', $con))
 	echo "Prepare failed: (" . $mysql_errno() . ") " . $mysql_error();
 	
 };
-while($row = mysql_fetch_assoc($sql))
-{
-echo $row['GroupName'];
-}
-
 ?>
