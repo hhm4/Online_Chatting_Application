@@ -11,18 +11,14 @@ $dbCon=mysql_select_db($config['database'], $con);
 	echo $json_string;
 	$userInfo = json_decode($json_string); */
 	$emailID = 'shoot the kuruvi';
-	$username = 'shoot the kuruviname';
+	$username = 'shoot the kuruvi name';
 	$password = '123';
-	$count=mysql_query(" Insert into hhm4.USERS(UserName, EmailId, User_Password) values('$username', '$emailID', '$password')",$con);
-	
-	if($count>0)
-		
-		echo "Success";
-	}
-	else
-	{
-		"registered";
-	}
+	$sql=mysql_query("CALL Testing()",$con);
+	while($row = mysql_fetch_assoc($sql))
+{
+echo $row['UserName'];
+}
+
 
 
 ?>
