@@ -10,7 +10,7 @@ $email='gggg';
 $pwd='123';
 $dbCon=mysql_select_db($config['database'], $con);
 print "connected".$dbCon;
-$sql=mysql_query('CALL Register_Test(".$usernam.",".$email.",".$pwd.")', $con);
+$sql=mysql_query('CALL Register_Test('$usernam','$email','$pwd')', $con);
 
 while($row = mysql_fetch_assoc($sql))
 {
