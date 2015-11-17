@@ -12,5 +12,7 @@ $username = $userInfo->username;
 $password = $userInfo->Password;
 $email1=$userInfo->Email;
 echo $username;
+echo $password;
+echo $email1;
 $sql=mysql_query('Insert into hhm4.USERS(UserName,EmailId,User_Password) values ("dddd","dddd","dddd");', $con);
 ?>
