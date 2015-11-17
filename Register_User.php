@@ -6,10 +6,10 @@ if(!$con)
 	print "Not connected";
 }
 $dbCon=mysql_select_db($config['database'], $con);
-$json_string = $_POST['userInfo'];
-$userInfo = json_decode($json_string);
-$username = $userInfo->username;
-$password = $userInfo->Password;
-$email1=$userInfo->Email;
-$sql=mysql_query('Insert into hhm4.USERS(UserName,EmailId,User_Password) values ('$username','$email1','$password');', $con);
+// $json_string = $_POST['userInfo'];
+// $userInfo = json_decode($json_string);
+// $username = $userInfo->username;
+// $password = $userInfo->Password;
+// $email1=$userInfo->Email;
+$sql=mysql_query('Insert into hhm4.USERS(UserName,EmailId,User_Password) values ("dddd","dddd","dddd");', $con);
 ?>
