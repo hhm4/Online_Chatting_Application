@@ -8,10 +8,7 @@ $result->execute();
 while($value=result-> fetch()
 {
 	print "<pre>";
-	print_r($value);
-	
-	
-	
+	print_r($value);	
 }
 
 ?>
