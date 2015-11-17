@@ -1,18 +1,17 @@
 <?php
 $config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
-$con=mysql_connect($config['host'],$config['username'],$config['password']);
-if(!$con)
+$con=new PDO(mysql:host=$config['host'],dbname=$config['database'],$config['username'],$config['password']);
+$sql= "CALL Testing()";
+$result= $con->prepare($sql);
+$result->setFetchMode(PDO:: FETCH_ASSOC);
+$result->execute();
+while($value=result-> fetch()
 {
-	print "Not connected";
+	print "<pre>";
+	print_r($value);
+	
+	
+	
 }
-$dbCon=mysql_select_db($config['database'], $con);
-print "connected".$dbCon;
-$emailID = 'fff@fff';
-$username = 'ddd';
-$password = 'ddd';
-$sql=mysql_query('CALL Register_Test($emailID,$username,$password)', $con);
-while($row = mysql_fetch_assoc($sql))
-{
-echo $row['UserIds'];
-}
+
 ?>
