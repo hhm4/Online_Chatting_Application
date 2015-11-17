@@ -11,8 +11,9 @@ $pwd='123';
 $dbCon=mysql_select_db($config['database'], $con);
 print "connected".$dbCon;
 $sql=mysql_query('CALL TESTING()', $con);
-while($row = $sql->fetch_object())
+while($row = mysql_fetch_assoc($sql))
 {
-debug($row);
+echo $row['GroupName'];
 }
+
 ?>
