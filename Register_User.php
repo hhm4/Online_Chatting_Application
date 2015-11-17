@@ -10,11 +10,11 @@ $email='gggg';
 $pwd='123';
 $dbCon=mysqli_select_db($config['database'], $con);
 print "connected".$dbCon;
-$sql=mysqli_prepare('CALL TESTING()', $con);
+$sql=mysqli_prepare('CALL Testing()', $con);
 
 while($row = mysqli_fetch_array($sql,MYSQLI_ASSOC))
 {
-echo $row['UserName'];
+echo $row['GroupName'];
 }
 
 
