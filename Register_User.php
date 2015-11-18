@@ -12,6 +12,6 @@ $username = $userInfo->username;
 $password = $userInfo->Password;
 $email1=$userInfo->Email;
 
-echo $username;
+echo $username:
 
 ?>
