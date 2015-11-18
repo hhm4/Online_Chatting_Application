@@ -1,6 +1,9 @@
 <?php
-$json = $_POST['HTTP_JSON'];
-$obj = json_decode($json,true);
-$name = $obj['name'];
-echo $name;	
+$json_string = $_POST['userInfo'];
+$userInfo = json_decode($json_string);
+$username = $userInfo->username;
+$password = $userInfo->Password;
+$email1=$userInfo->Email;
+
+echo $userInfo;
 ?>
