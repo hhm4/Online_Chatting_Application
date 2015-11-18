@@ -10,7 +10,7 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 
-$sql=mysql_query("Insert into hhm4.USERS(UserName,EmailId,User_Password) values ($username,$password,$email)", $con);
+$sql=mysql_query("Insert into hhm4.USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
 
 if($sql)
 	{
