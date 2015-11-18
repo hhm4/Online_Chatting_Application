@@ -12,7 +12,6 @@ $username = $userInfo->username;
 $password = $userInfo->Password;
 $email1=$userInfo->Email;
 
-$sql=mysql_query("CALL Register_NewUser('$username','$email1','$password');", $con);
-echo "Success123";
+echo $username;
 
 ?>
