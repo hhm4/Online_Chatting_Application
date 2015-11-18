@@ -4,6 +4,6 @@ $userInfo = json_decode($json_string);
 $username = $userInfo->username;
 $password = $userInfo->Password;
 $email1=$userInfo->Email;
-
-echo $userInfo;
+echo $email1;
+echo "hi";
 ?>
