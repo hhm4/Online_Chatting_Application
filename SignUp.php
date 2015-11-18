@@ -10,7 +10,11 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 
-$sql=mysql_query("CALL Register_NewUser('$username','$email','$password');", $con);
-echo "Success123";
+$sql=mysql_query("Insert into hhm4.USERS(UserName,EmailId,User_Password) values ($username,$password,$email)", $con);
+
+if($sql)
+	{
+		echo "Success123";
+	}
 mysql_close();
 ?>
