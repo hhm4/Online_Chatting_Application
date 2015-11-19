@@ -8,16 +8,15 @@ if(!$con)
 $dbCon=mysql_select_db($config['database'], $con);
 $email=$_POST['EmailId'];
 $token=$_POST['Token'];
-$query="select * from Token_Verification where EmailId='$email'";
+$newpassword =$_POST['NewPassword'];
+$query="select * from Token_Verification where EmailId='$email' AND Token='$token'";
 $authentication=mysql_query($query,$con);
 $count=mysql_num_rows($authentication);
 if($count>0)
 {
-$id= rand(1000000,2000000);
-$verification=mysql_query("Insert into Token_Verification(EmailId,Token) values ('{$email}',$id)", $con);
-
-			mail($email, "Password Reset", "Password Reset Token :".$id);
-			$response=array("Result"=>0);
+Update USERS SET User_Password='qwe' where EmailId='sm2239@njit.edu'
+$verification=mysql_query("Update USERS SET User_Password='$newpassword' where EmailId='$email'", $con);
+$response=array("Result"=>0);
 }
 else
 {
