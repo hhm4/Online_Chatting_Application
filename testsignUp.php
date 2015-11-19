@@ -11,24 +11,16 @@ $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
-<<<<<<< HEAD
-
-$sql=mysql_query("CALL Register_NewUser('{$username}','{$password}','{$email}')");
-echo json_encode($sql)
-#$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
-
-=======
-echo :
+echo "success";
 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
-print_r('Success');
->>>>>>> origin/master
+
 if($sql)
 	{
+		echo 'success';
 		$response=array("FName"=>"sheik","LName"=>"Simran");
 		$encoded = json_encode($response);
 		header('Content-type: application/json');
-		#echo $encoded;
+		echo $encoded;
 	}
-
 mysql_close();
 ?>
