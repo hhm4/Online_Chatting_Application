@@ -11,9 +11,9 @@ $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
-$existingUser=mysql_query("select count(*) from USERS where EmailId='smlksjdflkjdlfksdlkf'", $con);
+$existingUser=mysql_query("select count(*) from USERS where EmailId='hhm4@njit.edusss'", $con);
 $num=mysql_num_rows($existingUser);
-echo $num;
+echo "number of rows".$num;
 if($num){
 	#$id= mysql_query("SELECT FLOOR(RAND()*40000)+10000", $con);
 	$id=65645;
