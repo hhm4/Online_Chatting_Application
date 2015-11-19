@@ -11,7 +11,6 @@ $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
-<<<<<<< HEAD
 
 $sql=mysql_query("CALL Register_NewUser('{$username}','{$password}','{$email}')");
 echo json_encode($sql)
