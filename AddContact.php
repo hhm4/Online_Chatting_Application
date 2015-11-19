@@ -28,7 +28,7 @@ $query="Select * From USERS where EmailId='$email'";
  {
 	 $row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	 $userid=$row['UserId'];
-	 $userstatus=$row['Userstatus'];
+	 $userstatus=$row['UserStatus'];
 	 $sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contact_UserName,Contact_Status) values('{$userid}','{$ContactsName}','{$userstatus}')", $con);
 	 $response=array("Result"=>1);
 	 
