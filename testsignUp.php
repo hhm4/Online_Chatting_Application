@@ -16,6 +16,7 @@ $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$us
 
 if($sql)
 	{
+		echo 'success';
 		$response=array("FName"=>"sheik","LName"=>"Simran");
 		$encoded = json_encode($response);
 		header('Content-type: application/json');
