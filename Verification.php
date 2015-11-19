@@ -11,7 +11,10 @@ $dbCon=mysql_select_db($config['database'], $con);
 $VerificationCode=$_POST['VerificationCode'];
 $vc=intval($VerificationCode);
 $email=$_POST['EmailId'];
-$registration=mysql_query("Select * From UNVERIFIED_USERS where Token='{$VerificationCode}' AND Emailid= '".$email."'",$con);
+$query = sprintf("Select * From UNVERIFIED_USERS where Token='%d' AND EmailId='%s'",
+    mysql_real_escape_string($vc),mysql_real_escape_string($email));
+
+$registration=mysql_query($query,$con);
 #$registration=mysql_query("Select count(*) From UNVERIFIED_USERS where TOKEN=' ". $vc. " ' AND (EmailId=' ".$email. " ')",$con);
 #$registration=mysql_query("CALL FetchUnverifiedUsers('$email','$vc')",$con);
 echo $registration;
