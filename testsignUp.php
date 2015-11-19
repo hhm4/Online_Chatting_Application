@@ -9,7 +9,7 @@ if(!$con)
 }
 print_r($_POST);
 $dbCon=mysql_select_db($config['database'], $con);
-$username=$_POST['userName'];
+$username=$_POST['username'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 echo $username . $password . $email;
