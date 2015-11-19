@@ -1,5 +1,5 @@
 <?php
-$to = "mdlkumaran@gmail.com";
+$to = "sheikfasil@gmail.com";
 $subject = "this camr from mother";
 
 $name = 'Kumaran';
