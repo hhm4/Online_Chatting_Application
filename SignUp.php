@@ -12,7 +12,7 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 
-$sql=mysql_query("CALL Register_NewUser($username,$password,$email)");
+$sql=mysql_query("CALL Register_NewUser("kar thic","Playboy","playkarhti")");
 echo json_encode("result"=>$sql);
 #$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
 
