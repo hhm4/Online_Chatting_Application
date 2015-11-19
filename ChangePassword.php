@@ -6,10 +6,10 @@ if(!$con)
 	print "Not connected";
 }
 $dbCon=mysql_select_db($config['database'], $con);
-$token=$_POST['Token'];
-$token=(int)$token;
 $email=$_POST['EmailId'];
 $newpassword =$_POST['NewPassword'];
+$token=$_POST['Token'];
+$token=(int)$token;
 echo $newpassword;
 $query="select * from Token_Verification where EmailId='$email' AND Token='$token'";
 echo $query;
