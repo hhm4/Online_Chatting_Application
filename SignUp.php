@@ -12,7 +12,8 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 $existingUser=mysql_query("select count(*) from USERS where EmailId='".$email."'", $con);
-if($existingUser==0)
+echo $existingUser;
+if($existingUser>0)
 {
 	$id= rand(10000,20000);
 #echo $id;
