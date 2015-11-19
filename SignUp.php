@@ -11,7 +11,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
-$existingUser=mysql_query("select * from USERS where EmailId='sm2239@njit.edus'", $con);
+$existingUser=mysql_query("select count(*) from USERS where EmailId='sm2239@njit.edu'", $con);
 echo mysql_num_rows($existingUser);
 if(mysql_num_rows($existingUser)==0){
 	$id= mysql_query("SELECT FLOOR(RAND()*40000)+10000", $con);
@@ -27,7 +27,7 @@ else{
 }
 $encoded = json_encode($response);
 header('Content-type: application/json');
-echo $encoded;
+#echo $encoded;
 
 mysql_close();
 #$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$email}','{$password}')", $con);
