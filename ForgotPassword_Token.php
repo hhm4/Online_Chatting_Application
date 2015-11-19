@@ -13,9 +13,7 @@ $authentication=mysql_query($query,$con);
 $emailauthentication=mysql_query($query1,$con);
 $count=mysql_num_rows($authentication);
 $count1=mysql_num_rows($emailauthentication);
-echo $count;
-echo $count1;
-if($count>0 && $count1 =0)
+if($count>0 && $count1 ==0)
 {
 $id= rand(1000000,2000000);
 $verification=mysql_query("Insert into Token_Verification(EmailId,Token) values ('{$email}',$id)", $con);
