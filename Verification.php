@@ -16,7 +16,6 @@ echo mysql_num_rows($registration);
 if (mysql_num_rows($registration)==1){
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	$name=$row['UserName'];
-	$pass=$row['Password'];
 	$em=$row['User_Password'];
 	echo $name;
 	echo $pass;
