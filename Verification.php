@@ -12,9 +12,10 @@ $VerificationCode=(int)$_POST['VerificationCode'];
 $VerificationCode=12302;
 echo $VerificationCode;
 echo gettype($VerificationCode);
-$email=$_POST['EmailId'];
+#$email=$_POST['EmailId'];
 $email="ysudhdj";
-$registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=12302 AND EmailId='".$email."' ",$con);
+#AND EmailId='".$email."'
+$registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=12302",$con);
 if (mysql_num_rows($registration)!=0){
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	$name=$row['UserName'];
