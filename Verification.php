@@ -9,6 +9,8 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 $VerificationCode=$_POST['VerificationCode'];
+echo intval("333333");
+echo (int)("3322232")
 $vc=(int)$VerificationCodes;
 $email=$_POST['EmailId'];
 echo $vc;
