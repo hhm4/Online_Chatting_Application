@@ -11,6 +11,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
+$email=mysql_escape_string($email);
 $existingUser=mysql_query("select count(*) from USERS where EmailId='".$email."'", $con);
 echo $existingUser;
 if($existingUser>0)
