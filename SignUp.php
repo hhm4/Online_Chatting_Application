@@ -13,9 +13,10 @@ $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 $email=mysql_real_escape_string($email);
 $existingUser=mysql_query("select * from USERS where EmailId='".$email."'", $con);
+$unverifiedUser=mysql_query("select * from UNVERIFIED_USERS where EmailId='".$email."'", $con)
 $num=mysql_num_rows($existingUser);
-echo "number of rows".$num;
-if($num==0){
+$num1=mysql_num_rows($unverifiedUser);
+if($num==0 and $num1==0){
 	$id= rand(10000,20000);
 echo $id;
 $verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
