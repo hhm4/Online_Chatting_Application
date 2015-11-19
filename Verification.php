@@ -9,7 +9,7 @@ if(!$con)
 $dbCon=mysql_select_db($config['database'], $con);
 $token=$_POST['Token'];
 $email=$_POST['EmailId'];
-$query="Select * From UNVERIFIED_USERS where Token='$token' AND EmailId='email'";
+$query="Select * From UNVERIFIED_USERS where Token='$token' AND EmailId='$email'";
 echo $query;
 # $query = sprintf("Select * From UNVERIFIED_USERS where Token=18714 AND EmailId='%s'",
 // # mysql_real_escape_string($email));
