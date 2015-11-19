@@ -14,7 +14,7 @@ echo intval("333333");
 echo (int)("3322232");
 $vc=(int)$VerificationCodes;
 $email=$_POST['EmailId'];
-echo $vc;
+echo "vc".$vc;
 $query = sprintf("Select * From UNVERIFIED_USERS where Token='%d' AND EmailId='%s'",
  $vc,mysql_real_escape_string($email));
 
