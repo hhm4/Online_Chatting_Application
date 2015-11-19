@@ -10,11 +10,14 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 
-$sql=mysql_query("Insert into hhm4.USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
+$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
 
 if($sql)
 	{
-		echo "Success123";
+		$response=array("hari","sheik");
+		$encoded = json_encode($response);
+		header('Content-type: application/json');
+		echo $encoded;
 	}
 mysql_close();
 ?>
