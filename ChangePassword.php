@@ -10,6 +10,7 @@ $token=$_POST['Token'];
 $token=(int)$token;
 $email=$_POST['EmailId'];
 $newpassword =$_POST['NewPassword'];
+echo $newpassword;
 $query="select * from Token_Verification where EmailId='$email' AND Token='$token'";
 echo $query;
 $authentication=mysql_query($query,$con);
