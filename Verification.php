@@ -14,20 +14,21 @@ $query="Select * From UNVERIFIED_USERS where Token='$token' AND EmailId='$email'
  $registration=mysql_query($query,$con);
 
  $count=mysql_num_rows($registration);
- echo $count;
+ 
  if ($count>0){
-	// $row = mysql_fetch_array($registration, MYSQL_ASSOC);
-	// $name=$row['UserName'];
-	// $em=$row['User_Password'];
-	// $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$name}','{$email}','{$em}')", $con);
-	// $delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='".$email."'",$con);
-	// $response=array("Result"=>1);
+	 $row = mysql_fetch_array($registration, MYSQL_ASSOC);
+	 $name=$row['UserName'];
+	 $pass=$row['User_Password'];
+	 
+	 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$name}','{$email}','{$pass}')", $con);
+	 $delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='$email'",$con);
+	 $response=array("Result"=>1);
  }
-// else{
-	// $response=array("Result"=>0,"Type"=>gettype($vc));
-// }
-// $encoded = json_encode($response);
-// header('Content-type: application/json');
-// echo $encoded;
+ else{
+	 $response=array("Result"=>0,"Type"=>gettype($vc));
+ }
+ $encoded = json_encode($response);
+ header('Content-type: application/json');
+ echo $encoded;
 mysql_close();
 ?>
