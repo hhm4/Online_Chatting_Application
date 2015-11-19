@@ -12,20 +12,17 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 
-$sql=mysql_query("CALL Register_NewUser("kar thic","Playboy","playkarhti")");
-echo json_encode("result"=>$sql);
-#$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
-
-
-#$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
-
-if($sql)
-	{
-		$response=array("FName"=>"sheik","LName"=>"Simran");
-		$encoded = json_encode($response);
-		header('Content-type: application/json');
-		#echo $encoded;
-	}
+$existingUser=("select count(*) from USERS where EmailId=".$email);
+if($existingUser==0){
+	$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
+	$response=array("Result"=>1);
+}
+else{
+	$response=array("Result"=>0);
+}
+$encoded = json_encode($response);
+header('Content-type: application/json');
+echo $encoded;
 
 mysql_close();
 ?>
