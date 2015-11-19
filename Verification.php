@@ -9,11 +9,11 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 $VerificationCode=(int)$_POST['VerificationCode'];
-$VerificationCode=12302;
+$VerificationCode=14769;
 echo $VerificationCode;
 echo gettype($VerificationCode);
 #$email=$_POST['EmailId'];
-$email="ysudhdj";
+$email="hhm4@njit.edu";
 #AND EmailId='".$email."'
 $registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=$VerificationCode AND EmailId='{$email}'",$con);
 if (mysql_num_rows($registration)!=0){
