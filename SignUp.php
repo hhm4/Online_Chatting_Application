@@ -12,8 +12,7 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 #$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$email}','{$password}')", $con);
-$existingUser=mysql_query("select * from USERS ", $con);
-echo mysql_num_rows($existingUser);
+$existingUser=mysql_query("select * from USERS where EmailId='$email'", $con);
 if(mysql_num_rows($existingUser)==0){
 	$id= mysql_query("SELECT FLOOR(RAND()*40000)+10000", $con);
 
