@@ -12,12 +12,12 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 $existingUser=mysql_query("select count(*) from USERS where EmailId='sm2239@njit.edu'", $con);
-echo mysql_num_rows($existingUser);
-if(mysql_num_rows($existingUser)==0){
+$num=mysql_num_rows($existingUser);
+if($num==0){
 	$id= mysql_query("SELECT FLOOR(RAND()*40000)+10000", $con);
-
+echo $id;
 $verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
-	
+	echo $verification;
 	if($verification){
 		$response=array("Result"=>0);
 	}
