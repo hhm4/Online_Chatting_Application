@@ -14,7 +14,6 @@ $authentication=mysql_query($query,$con);
 $count=mysql_num_rows($authentication);
 if($count>0)
 {
-Update USERS SET User_Password='qwe' where EmailId='sm2239@njit.edu'
 $verification=mysql_query("Update USERS SET User_Password='$newpassword' where EmailId='$email'", $con);
 $response=array("Result"=>0);
 }
