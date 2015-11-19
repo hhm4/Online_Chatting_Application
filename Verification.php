@@ -25,7 +25,7 @@ $query="Select * From UNVERIFIED_USERS where Token='$token' AND EmailId='$email'
 	 $response=array("Result"=>1);
  }
  else{
-	 $response=array("Result"=>0,"Type"=>gettype($vc));
+	 $response=array("Result"=>0,"Type"=>gettype($token));
  }
  $encoded = json_encode($response);
  header('Content-type: application/json');
