@@ -8,10 +8,9 @@ if(!$con)
 	print "Not connected";
 }
 $dbCon=mysql_select_db($config['database'], $con);
-$vc=18714;
 $email=$_POST['EmailId'];
-$VerificationCode=$_POST['Token'];
-echo $VerificationCode;
+$a=$_POST['Token'];
+echo $a;
 echo $email;
 
 // #$query = sprintf("Select * From UNVERIFIED_USERS where Token=18714 AND EmailId='%s'",
