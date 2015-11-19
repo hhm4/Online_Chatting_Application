@@ -12,7 +12,7 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 $email=mysql_real_escape_string($email)
-$existingUser=mysql_query("select * from USERS where EmailId='{$email}' ", $con);
+$existingUser=mysql_query("select * from USERS where EmailId='acvbg' ", $con);
 $num=mysql_num_rows($existingUser);
 echo "number of rows".$num;
 if($num){
