@@ -18,7 +18,7 @@ $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$us
 #	$response=array("Result"=>1);
 #}
 ##else{
-	$response=array("Result"=>0);
+	$response=array("Result"=>"0");
 #}
 $encoded = json_encode($response);
 header('Content-type: application/json');
