@@ -9,6 +9,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 $email=$_POST['EmailId'];
 echo $email;
 $query="select * from USERS where EmailId='$email'";
+echo $query;
 $authentication=mysql_query($query,$con);
 $count=mysql_num_rows($authentication);
 echo $count;
