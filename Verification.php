@@ -12,7 +12,7 @@ $VerificationCode=$_POST['VerificationCode'];
 echo $VerificationCode;
 echo intval("333333");
 echo (int)("3322232");
-$vc=(int)$VerificationCode;
+$vc=12840;
 $email=$_POST['EmailId'];
 echo "vc".$vc;
 $query = sprintf("Select * From UNVERIFIED_USERS where Token='%d' AND EmailId='%s'",
