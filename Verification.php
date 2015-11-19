@@ -8,10 +8,10 @@ if(!$con)
 	print "Not connected";
 }
 $dbCon=mysql_select_db($config['database'], $con);
-//$VerificationCode=(int)$_POST['VerificationCode'];
-//$email=$_POST['EmailId'];
-$email="ysudhdj";
-$registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=16634 AND EmailId='".$email."' ",$con);
+$VerificationCode=(int)$_POST['VerificationCode'];
+$email=$_POST['EmailId'];
+//$email="ysudhdj";
+$registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=".$VerificationCode." AND EmailId='".$email."' ",$con);
 if (mysql_num_rows($registration)!=0){
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	$name=$row['UserName'];
