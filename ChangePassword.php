@@ -19,6 +19,7 @@ echo $count;
 if($count>0)
 {
 $verification=mysql_query("Update USERS SET User_Password='$newpassword' where EmailId='$email'", $con);
+$removedata=mysql_query("Delete FROM Token_Verification where EmailId='$email'",$con);
 $response=array("Result"=>0);
 }
 else
