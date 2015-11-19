@@ -1,6 +1,5 @@
 <?php
 
-
 $config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
 $con=mysql_connect($config['host'],$config['username'],$config['password']);
 if(!$con)
@@ -10,8 +9,7 @@ if(!$con)
 $dbCon=mysql_select_db($config['database'], $con);
 $email=$_POST['Token'];
 $email1=$_POST['EmailId'];
-echo $email;
-echo $email1;
+echo "values".$email.$email1;
 
 // #$query = sprintf("Select * From UNVERIFIED_USERS where Token=18714 AND EmailId='%s'",
 // # mysql_real_escape_string($email));
