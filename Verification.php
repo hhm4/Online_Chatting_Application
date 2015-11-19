@@ -17,7 +17,7 @@ $query = sprintf("Select * From UNVERIFIED_USERS where Token='%d' AND EmailId='%
 $registration=mysql_query($query,$con);
 #$registration=mysql_query("Select count(*) From UNVERIFIED_USERS where TOKEN=' ". $vc. " ' AND (EmailId=' ".$email. " ')",$con);
 #$registration=mysql_query("CALL FetchUnverifiedUsers('$email','$vc')",$con);
-echo $registration;
+echo mysql_num_rows($registration);
 if (mysql_num_rows($registration)){
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	$name=$row['UserName'];
