@@ -15,7 +15,7 @@ $email=$_POST['EmailId'];
 //echo $username . $password . $email;
 //echo "success";
 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
-
+echo $sql;
 if($sql)
 	{
 		echo 'success';
