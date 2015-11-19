@@ -21,7 +21,7 @@ if (mysql_num_rows($registration)!=0){
 	$response=array("Result"=>1);
 }
 else{
-	$response=array("Result"=>0);
+	$response=array("Result"=>0,"Type"=>gettype($vc));
 }
 $encoded = json_encode($response);
 header('Content-type: application/json');
