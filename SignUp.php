@@ -18,7 +18,7 @@ $num=mysql_num_rows($existingUser);
 #$num1=mysql_num_rows($unverifiedUser);
 if($num==0){
 	$id= rand(10000,20000);
-echo $id;
+#echo $id;
 $verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
 	#echo $verification;
 	if($verification){
