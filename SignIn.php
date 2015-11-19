@@ -10,7 +10,7 @@ if ($con){
 }
 $email=$_POST['EmailId'];
 $password=$_POST['Passsword'];
-$authentication=mysql_query("select * from USERS where EmailId='hhm4@njit.edu' AND User_Passsword='kinder9joy'",$con);
+$authentication=mysql_query(" select * from USERS where EmailId='hhm4@njit.edu' AND User_Password='kinder9joy'",$con);
 $count=mysql_num_rows($authentication);
 $count=array('Result' => $count);
 echo json_encode($count);
