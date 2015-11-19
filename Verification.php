@@ -12,13 +12,10 @@ $VerificationCode=$_POST['VerificationCode'];
 $email=$_POST['EmailId'];
 
 $registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=$VerificationCode AND EmailId='".$email."' ",$con);
-echo mysql_num_rows($registration);
 if (mysql_num_rows($registration)==1){
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	$name=$row['UserName'];
 	$em=$row['User_Password'];
-	echo $name;
-	echo $em;
 	$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('$name','$email','$em')", $con);
 	$delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='".$email."'",$con);
 	$response=array("Result"=>1);
