@@ -10,9 +10,10 @@ if(!$con)
 $dbCon=mysql_select_db($config['database'], $con);
 $vc=18714;
 $email=$_POST['EmailId'];
-$VerificationCode=$_POST['VerificationCode'];
-echo $email;
+$VerificationCode=$_POST['Token'];
 echo $VerificationCode;
+echo $email;
+
 // #$query = sprintf("Select * From UNVERIFIED_USERS where Token=18714 AND EmailId='%s'",
 // # mysql_real_escape_string($email));
 // $query = sprintf("Select * From UNVERIFIED_USERS where Token='%d'",18714);
