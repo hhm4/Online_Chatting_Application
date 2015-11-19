@@ -11,7 +11,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
-$email=mysql_real_escape_string($email);
+#$email=mysql_real_escape_string($email);
 $existingUser=mysql_query("select * from USERS where EmailId='".$email."'", $con);
 #$unverifiedUser=mysql_query("select * from UNVERIFIED_USERS where EmailId='".$email."'", $con)
 $num=mysql_num_rows($existingUser);
@@ -22,6 +22,7 @@ if($num==0){
 $verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
 	#echo $verification;
 	if($verification){
+		mail($email, "Online Chat verification", "Verification Code :".$id);
 		$response=array("Result"=>0);
 	}
 }
