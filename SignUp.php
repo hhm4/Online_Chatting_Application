@@ -12,7 +12,7 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 
-$existingUser=("select count(*) from USERS where EmailId='{$email}'");
+$existingUser=("select count(*) from USERS where EmailId='$email'");
 if($existingUser==0){
 	$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
 	$response=array("Result"=>1);
