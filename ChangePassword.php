@@ -7,13 +7,11 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 $email=$_POST['EmailId'];
-$query="select * from USERS where EmailId='$email'";
-$query1="select * from Token_Verification where EmailId='$email'";
+$token=$_POST['Token'];
+$query="select * from Token_Verification where EmailId='$email'";
 $authentication=mysql_query($query,$con);
-$emailauthentication=mysql_query($query1,$con);
 $count=mysql_num_rows($authentication);
-$count1=mysql_num_rows($emailauthentication);
-if($count>0 && $count1 =0)
+if($count>0)
 {
 $id= rand(1000000,2000000);
 $verification=mysql_query("Insert into Token_Verification(EmailId,Token) values ('{$email}',$id)", $con);
