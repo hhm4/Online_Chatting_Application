@@ -1,4 +1,6 @@
 <?php
+
+
 $config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
 $con=mysql_connect($config['host'],$config['username'],$config['password']);
 if(!$con)
@@ -11,7 +13,7 @@ $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 
 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
-
+print_r('Success');
 if($sql)
 	{
 		$response=array("FName"=>"sheik","LName"=>"Simran");
