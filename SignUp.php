@@ -11,7 +11,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
-$email=mysql_real_escape_string($email)
+$email=mysql_real_escape_string($email);
 $existingUser=mysql_query("select * from USERS where EmailId='acvbg' ", $con);
 $num=mysql_num_rows($existingUser);
 echo "number of rows".$num;
