@@ -13,14 +13,12 @@ $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 
 $sql=mysql_query("CALL Register_NewUser('{$username}','{$password}','{$email}')");
-echo json_encode($sql)
+echo json_encode("result"=>$sql);
 #$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
 
-=======
-echo :
+
 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$password}','{$email}')", $con);
-print_r('Success');
->>>>>>> origin/master
+
 if($sql)
 	{
 		$response=array("FName"=>"sheik","LName"=>"Simran");
