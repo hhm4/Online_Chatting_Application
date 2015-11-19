@@ -12,6 +12,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
+echo $username . $password . $email;
 //echo "success";
 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('$username','$password','$email')", $con);
 
