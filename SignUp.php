@@ -14,7 +14,7 @@ $email=$_POST['EmailId'];
 $existingUser=mysql_query("select count(*) from USERS where EmailId='smlksjdflkjdlfksdlkf'", $con);
 $num=mysql_num_rows($existingUser);
 echo $num;
-if($num==0){
+if($num){
 	#$id= mysql_query("SELECT FLOOR(RAND()*40000)+10000", $con);
 	$id=65645;
 echo $id;
