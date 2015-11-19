@@ -3,7 +3,7 @@ $to = "sheikfasil@gmail.com";
 $subject = "this camr from mother";
 
 $name = 'Kumaran';
-$email = 'mdlkumaran@gmail.com';
+$email = 'sheikfasil@gmail.com';
 $message= "Hi I am gud";
 $subject  = "My Subject";
 $header ='$email';
