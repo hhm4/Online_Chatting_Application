@@ -12,7 +12,8 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 $existingUser=mysql_query("select count(*) from USERS where EmailId='".$email."'", $con);
-if($existingUser==0){
+if($existingUser==0)
+{
 	$id= rand(10000,20000);
 #echo $id;
 $verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
