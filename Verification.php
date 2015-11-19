@@ -18,6 +18,8 @@ if (mysql_num_rows($registration)==1){
 	$name=$row['UserName'];
 	$pass=$row['Password'];
 	$em=$row['User_Password'];
+	echo $name;
+	echo $pass;
 	$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('$name','$pass','$em')", $con);
 	$delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='".$email."'",$con);
 	$response=array("Result"=>1);
