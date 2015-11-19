@@ -7,7 +7,7 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 
-$existingUser=mysql_query("CALL FetchUnverifiedUsers('vnvnjbjk','65645')",con);
+$existingUser=mysql_query("CALL FetchUnverifiedUsers('vnvnjbjk',65645)",con);
 
 echo mysql_num_rows($existingUser);
 
