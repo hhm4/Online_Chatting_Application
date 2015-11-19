@@ -10,6 +10,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 $email=$_POST['Token'];
 $email1=$_POST['EmailId'];
 echo "values".$email.$email1;
+echo $_POST[];
 
 // #$query = sprintf("Select * From UNVERIFIED_USERS where Token=18714 AND EmailId='%s'",
 // # mysql_real_escape_string($email));
