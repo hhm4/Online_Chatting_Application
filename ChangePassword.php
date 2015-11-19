@@ -10,12 +10,9 @@ $email=$_POST['EmailId'];
 $newpassword =$_POST['NewPassword'];
 $token=$_POST['Token'];
 $token=(int)$token;
-echo $newpassword;
 $query="select * from Token_Verification where EmailId='$email' AND Token='$token'";
-echo $query;
 $authentication=mysql_query($query,$con);
 $count=mysql_num_rows($authentication);
-echo $count;
 if($count>0)
 {
 $verification=mysql_query("Update USERS SET User_Password='$newpassword' where EmailId='$email'", $con);
