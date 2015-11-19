@@ -12,7 +12,7 @@ $VerificationCode=$_POST['VerificationCode'];
 $email=$_POST['EmailId'];
 
 $registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=$VerificationCode AND EmailId='".$email."' ",$con);
-if (mysql_num_rows($registration)=1){
+if (mysql_num_rows($registration)==1){
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC)
 	$name=$row['UserName'];
 	$pass=$row['Password'];
