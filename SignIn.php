@@ -15,9 +15,18 @@ $query = sprintf("SELECT EmailId,User_Password FROM USERS
 
 $authentication=mysql_query($query,$con);
 #$authentication=mysql_query(" select * from USERS where EmailId='hhm4@njit.edu' AND User_Password='kinder9joy'",$con);
+
 $count=mysql_num_rows($authentication);
-$count=array('Result' => $count);
-echo json_encode($count);
+if ($count>0){
+	$response=array("Result"=>1);
+}
+else{
+	$response=array("Result"=>0);
+}
+
+$encoded = json_encode($response);
+header('Content-type: application/json');
+echo $encoded;
 mysql_close();
 
 ?>
