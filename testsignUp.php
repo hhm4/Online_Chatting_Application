@@ -7,6 +7,7 @@ if(!$con)
 {
 	print "Not connected";
 }
+print_r($_POST);
 $dbCon=mysql_select_db($config['database'], $con);
 $username=$_POST['UserName'];
 $password=$_POST['Password'];
