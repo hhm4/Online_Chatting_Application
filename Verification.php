@@ -9,16 +9,15 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 $VerificationCode=$_POST['VerificationCode'];
-echo $VerificationCode;
-$vc=11828;
+$vc=18714;
 $email=$_POST['EmailId'];
-echo "vc".$vc;
 $query = sprintf("Select * From UNVERIFIED_USERS where Token='%d' AND EmailId='%s'",
  $vc,mysql_real_escape_string($email));
 
 $registration=mysql_query($query,$con);
 #$registration=mysql_query("Select count(*) From UNVERIFIED_USERS where TOKEN=' ". $vc. " ' AND (EmailId=' ".$email. " ')",$con);
 #$registration=mysql_query("CALL FetchUnverifiedUsers('$email','$vc')",$con);
+echo '     ';
 echo mysql_num_rows($registration);
 if (mysql_num_rows($registration)){
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
