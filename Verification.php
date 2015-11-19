@@ -23,7 +23,7 @@ $query="Select * From UNVERIFIED_USERS where Token='$token' AND EmailId='$email'
 	 
 	 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$name}','{$email}','{$pass}')", $con);
 	 $delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='$email'",$con);
-	 $response=array("Result"=>1,"Type"=>gettype($token);
+	 $response=array("Result"=>1,"Type"=>gettype($token));
  }
  else{
 	 $response=array("Result"=>0,"Type"=>gettype($token));
