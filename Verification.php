@@ -9,9 +9,9 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 $VerificationCode=$_POST['VerificationCode'];
-$vc=(int)$VerificationCode;
+$vc=intval($VerificationCode);
 $email=$_POST['EmailId'];
-$registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=$vc AND EmailId='{$email}'",$con);
+$registration=mysql_query("Select * From UNVERIFIED_USERS where TOKEN=' ". $vc. " ' AND EmailId=' ".$email. " '",$con);
 if (mysql_num_rows($registration)!=0){
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	$name=$row['UserName'];
