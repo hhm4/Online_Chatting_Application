@@ -12,9 +12,9 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 #$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$email}','{$password}')", $con);
-$existingUser=mysql_query("select count(*) from USERS where EmailId='$email'", $con);
+$existingUser=mysql_query("select * from USERS where EmailId='$email'", $con);
 echo $existingUser;
-if($existingUser==0){
+if($existingUser){
 	$id= mysql_query("SELECT FLOOR(RAND()*40000)+10000", $con);
 
 $verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
