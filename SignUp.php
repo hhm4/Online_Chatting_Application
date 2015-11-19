@@ -20,7 +20,7 @@ if($num==0){
 	$id= rand(10000,20000);
 echo $id;
 $verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
-	echo $verification;
+	#echo $verification;
 	if($verification){
 		$response=array("Result"=>0);
 	}
