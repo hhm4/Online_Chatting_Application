@@ -4,7 +4,7 @@ $subject = "this camr from mother";
 
 $name = 'Kumaran';
 $email = 'sheikfasil@gmail.com';
-$message= "Hi I am gud";
+$message= "verification code:12345";
 $subject  = "My Subject";
 $header ='$email';
 $config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
