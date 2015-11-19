@@ -11,6 +11,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 $VerificationCode=$_POST['VerificationCode'];
 $vc=(int)$VerificationCodes;
 $email=$_POST['EmailId'];
+echo $vc;
 $query = sprintf("Select * From UNVERIFIED_USERS where Token='%d' AND EmailId='%s'",
  $vc,mysql_real_escape_string($email));
 
