@@ -13,14 +13,13 @@ $query = sprintf("SELECT count(*) from USERS where EmailId='%s'",
     mysql_real_escape_string($email));
 
 $existingUser=mysql_query($query, $con);
-echo $existingUser;
 if($existingUser>0)
 {
 	$id= rand(10000,20000);
-$verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
-if($verification){
-		mail($email, "Online Chat verification", "Verification Code :".$id);
-		$response=array("Result"=>0);
+	$verification=mysql_query("Insert into UNVERIFIED_USERS (UserName,EmailId,User_Password,Token) values ('{$username}','{$email}','{$password}',$id)", $con);
+	if($verification){
+			mail($email, "Online Chat verification", "Verification Code :".$id);
+			$response=array("Result"=>0);
 	}
 }
 else{
