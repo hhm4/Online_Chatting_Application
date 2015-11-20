@@ -12,9 +12,8 @@ $query = sprintf("SELECT EmailId,User_Password FROM USERS
     WHERE EmailId='%s' AND User_Password='%s'",
     mysql_real_escape_string($email),
     mysql_real_escape_string($password));
-
-$authentication=mysql_query($query,$con);
-#$authentication=mysql_query(" select * from USERS where EmailId='hhm4@njit.edu' AND User_Password='kinder9joy'",$con);
+#$authentication=mysql_query($query,$con);
+$authentication=mysql_query(" select * from USERS where EmailId='{$email}' AND User_Password='{$password}'",$con);
 
 $count=mysql_num_rows($authentication);
 echo $count;
