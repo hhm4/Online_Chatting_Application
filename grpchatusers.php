@@ -10,7 +10,7 @@ $GroupName= "CoolGuys";
 $IsGroupChat=1;
 $UserIds=";1;2;3;4;";
 
-$query = " Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', '$IsGroupChat', '$GroupName', '$GroupImage');";  
+$query = " Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', $IsGroupChat, '$GroupName', '$GroupImage');";  
 
 if(mysql_affected_rows>0)
 {
