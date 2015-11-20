@@ -17,7 +17,12 @@ if($count>0 && $count1 ==0)
 {
 $id= rand(1000000,2000000);
 $verification=mysql_query("Insert into Token_Verification(EmailId,Token) values ('{$email}',$id)", $con);
-
+ $message = "
+<html><head><title></title></head><body><p> Password Reset Token</p><table><tr><th>Reset your Password by entering the below verification code manually in the application</th><th>";
+$message=.$id."</th></tr><tr></tr></table></body></html>";
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= 'From: <Online chat Team>' . "\r\n";
 			mail($email, "Password Reset", "Password Reset Token :".$id);
 			$response=array("Result"=>0);
 }
