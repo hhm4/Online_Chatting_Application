@@ -4,7 +4,7 @@ $config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
 $mysqli=mysql_connect($config['host'],$config['username'],$config['password']);
 
 $username = "sheik";
-
+bool $ result = TRUE;
 
 $mysqli = mysqli_connect();
 
