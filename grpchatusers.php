@@ -17,7 +17,7 @@ echo $UserIds;
 
 
 $query = "Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', $IsGroupChat, '$GroupName', '$GroupImage');";  
-echo $mysql_affected_rows;
+echo "mysql_affected_rows:".$mysql_affected_rows;
 if(mysql_affected_rows>0)
 {
 	echo "inserted";
