@@ -15,7 +15,7 @@ echo $Message;
 echo $FromUserId;
 echo $MessageLink;	
 
-$verification=mysql_query("Insert into CHATROOM_USERS(ChatRoomId, FromUserId, Message, MessageLink) values($ChatRoomId, $FromUserId, '$Message', '$MessageLink')", $con);
+$verification=mysql_query("Insert into CHATMESSAGES(ChatRoomId, FromUserId, Message, MessageLink) values($ChatRoomId, $FromUserId, '$Message', '$MessageLink')", $con);
 echo $verification;
 if($verification)
 {
