@@ -24,7 +24,7 @@ $message.="</th></tr><tr></tr></table></body></html>";
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: <Online chat Team>' . "\r\n";
-			mail($email, "Password Reset", "Password Reset Token :".$id);
+			mail($email, "Password Reset", $message,$headers);
 			$response=array("Result"=>0);
 }
 else
