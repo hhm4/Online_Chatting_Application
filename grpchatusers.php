@@ -17,8 +17,8 @@ echo $UserIds;
 
 $verification=mysql_query("Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', $IsGroupChat, '$GroupName', '$GroupImage')", $con);
 //$query = "Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', $IsGroupChat, '$GroupName', '$GroupImage');";  
-echo "mysql_affected_rows:".$mysql_affected_rows;
-if(mysql_affected_rows>0)
+echo $verification;
+if($verification>0)
 {
 	echo "inserted";
 }    
