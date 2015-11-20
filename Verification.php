@@ -11,7 +11,7 @@ $token=$_POST['VerificationCode'];
 $token=(int)$token;
 $email=$_POST['EmailId'];
 $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
-echo $query;
+#echo $query;
  $registration=mysql_query($query,$con);
 
  $count=mysql_num_rows($registration);
