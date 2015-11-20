@@ -12,12 +12,10 @@ $email=$_POST['EmailId'];
 $ContactsName=$_POST['ContactName'];
 
 $query="Select * From USERS where EmailId='$email'";
-echo $query;
  $registration=mysql_query($query,$con);
 
  $count=mysql_num_rows($registration);
- echo $count;
- if ($count=0)
+ if ($count==0)
  {
 	 mail($email, "Join Online Chat", "Join online Chat www.onlineChat.com");
 	 $response=array("Result"=>0);
