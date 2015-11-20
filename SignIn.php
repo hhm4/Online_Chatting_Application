@@ -13,7 +13,7 @@ $query = sprintf("SELECT EmailId,User_Password FROM USERS
     mysql_real_escape_string($email),
     mysql_real_escape_string($password));
 #$authentication=mysql_query($query,$con);
-$authentication=mysql_query(" select * from USERS where EmailId='{$email}' AND User_Password='{$password}'",$con);
+$authentication=mysql_query(" select * from USERS where EmailId=`$email` AND User_Password=`$password`",$con);
 
 $count=mysql_num_rows($authentication);
 echo $count;
