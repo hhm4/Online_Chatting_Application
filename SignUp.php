@@ -28,7 +28,6 @@ else{
 $encoded = json_encode($response);
 header('Content-type: application/json');
 echo $encoded;
-
 mysql_close();
 #$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$username}','{$email}','{$password}')", $con);
 
