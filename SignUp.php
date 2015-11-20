@@ -14,7 +14,7 @@ $authentication=mysql_query($query,$con);
 if(mysql_num_rows($authentication)>0)
 {
 	$id= rand(10000,20000);
-	$verify=mysql_query("select * from UNVERIFIED_USERS where EmailId='$email'",$con)
+	$verify=mysql_query("select * from UNVERIFIED_USERS where EmailId='$email'",$con);
 	if(mysql_num_rows($verify)>0)
 	{
 		$verification=mysql_query("Update UNVERIFIED_USERS set Token ='$id' where EmailId='$email'",$con);
