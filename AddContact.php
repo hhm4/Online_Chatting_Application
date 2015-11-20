@@ -36,7 +36,7 @@ $contactscount=mysql_num_rows($contactscheck);
 
 else
  {
-	 mail($email, "Join Online Chat", "Join online Chat www.onlineChat.com");
+	 mail($email, "Join Online Chat", "Join online Chat www.onlineChat.com","From:OnlinechatTechTeam");
 	 $response=array("Result"=>2);
 	 
  }
