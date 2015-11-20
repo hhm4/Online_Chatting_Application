@@ -13,6 +13,6 @@ mysqli_stmt_bind_param($call, 's', $username);
 mysqli_stmt_execute($call);
 mysqli_stmt_bind_result($call, $result);
 mysqli_stmt_fetch($call);
-echo $result;
+echo "result:".$result;
            
 />
