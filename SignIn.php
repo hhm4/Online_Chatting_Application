@@ -6,7 +6,7 @@ $con=mysql_connect($config['host'],$config['username'],$config['password']);
 
 $dbcon=mysql_select_db($config['database'],$con);
 $email=$_POST['EmailId'];
-$password=$_POST['Passsword'];
+$password=$_POST['Password'];
 
 $query = sprintf("SELECT EmailId,User_Password FROM USERS
     WHERE EmailId='%s' AND User_Password='%s'",
