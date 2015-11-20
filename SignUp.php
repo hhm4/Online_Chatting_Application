@@ -33,7 +33,7 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: <Online chat Team>' . "\r\n";
 mail($email, "Sign Up Email", $message,$headers);
 $response=array("Result"=>0);	
-	}
+	
 }
 else{
 	$response=array("Result"=>"1");
