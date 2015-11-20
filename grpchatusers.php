@@ -16,7 +16,6 @@ echo $IsGroupChat;
 echo $UserIds;
 
 $verification=mysql_query("Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', $IsGroupChat, '$GroupName', '$GroupImage')", $con);
-//$query = "Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', $IsGroupChat, '$GroupName', '$GroupImage');";  
 echo $verification;
 if($verification)
 {
