@@ -56,8 +56,14 @@ else
 </body>
 </html>
 ";
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-	 mail($email, "Join Online Chat",$message,"From:Onlinechat Tech Team");
+// More headers
+$headers .= 'From: <Online chat Team>' . "\r\n";
+
+
+	 mail($email, "Join Online Chat",$message,$headers);
 	 $response=array("Result"=>2);
 	 
  }
