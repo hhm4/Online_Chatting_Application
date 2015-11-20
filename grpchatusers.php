@@ -8,10 +8,16 @@ $dbCon=mysql_select_db($config['database'], $con);
 $GroupImage= "someImagedir";
 $GroupName= "CoolGuys";
 $IsGroupChat=1;
-$UserIds=";1;2;3;4;";
+$UserIds=';1;2;3;4;';
 
-$query = " Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', $IsGroupChat, '$GroupName', '$GroupImage');";  
+echo $GroupImage;
+echo $GroupName;
+echo $IsGroupChat;
+echo $UserIds;
 
+
+$query = "Insert into CHATROOM_USERS(UserIds, IsGroupChat, GroupName, GroupImage) values('$UserIds', $IsGroupChat, '$GroupName', '$GroupImage');";  
+echo $mysql_affected_rows;
 if(mysql_affected_rows>0)
 {
 	echo "inserted";
