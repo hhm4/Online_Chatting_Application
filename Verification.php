@@ -17,7 +17,7 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
  $count=mysql_num_rows($registration);
  
  if ($count==0){
-	 #$response=array("Result"=>0,"query"=>$query);
+	 $response=array("Result"=>0,"query"=>$query);
  }
  else{
 	
@@ -27,10 +27,10 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
 	 
 	 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$name}','{$email}','{$pass}')", $con);
 	 $delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='$email'",$con);
-	 #$response=array("Result"=>1,"query"=>$query);
+	 $response=array("Result"=>1,"query"=>$query);
  }
 
- $response=array("Result"=>1,"query"=>$query);
+ #$response=array("Result"=>1,"query"=>$query);
  $encoded = json_encode($response);
  header('Content-type: application/json');
  echo $encoded;
