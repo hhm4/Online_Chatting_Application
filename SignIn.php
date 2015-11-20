@@ -17,6 +17,7 @@ $authentication=mysql_query($query,$con);
 #$authentication=mysql_query(" select * from USERS where EmailId='hhm4@njit.edu' AND User_Password='kinder9joy'",$con);
 
 $count=mysql_num_rows($authentication);
+echo $count;
 if ($count>0){
 	$response=array("Result"=>1);
 }
