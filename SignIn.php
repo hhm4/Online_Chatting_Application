@@ -14,11 +14,10 @@ $query = sprintf("SELECT EmailId,User_Password FROM USERS
     mysql_real_escape_string($password));
 #$authentication=mysql_query($query,$con);
 $query="select * from USERS where EmailId='$email' AND User_Password='$password'";
-echo $query;
-$authentication=mysql_query("select * from USERS where EmailId='$email' AND User_Password='$password'",$con);
+$authentication=mysql_query($query,$con);
 
 $count=mysql_num_rows($authentication);
-echo $count;
+
 if ($count>0){
 	$response=array("Result"=>1);
 }
