@@ -10,10 +10,8 @@ $dbCon=mysql_select_db($config['database'], $con);
 
 $contactid=$_POST['ContactId'];
 $query="Select * From CONTACTS where ContactId='$contactid'";
-echo $query;
 $check=mysql_query($query,$con);
 $count=mysql_num_rows($check);
-echo $count;
 if($count!=0)
 {
 
