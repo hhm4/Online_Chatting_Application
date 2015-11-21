@@ -7,7 +7,7 @@ DROP TABLE hhm4.TOKEN_VERIFICATION;
 
 CREATE TABLE hhm4.USERS (
 
-UserId int(10) NOT NULL AUTO_INCREMENT,
+UserId int(10) NOT NULL,
 UserName varchar(100) NOT NULL,
 EmailId  varchar(250) NOT NULL,
 User_Password varchar(100) NOT NULL,
@@ -19,9 +19,11 @@ constraint users_pk PRIMARY KEY (UserId),
 constraint users_uk UNIQUE KEY EmailId (EmailId)
 );
 
+ALTER TABLE USERS AUTO_INCREMENT=100;
+
 
 CREATE TABLE IF NOT EXISTS hhm4.CHATROOM_USERS (
-ChatRoomId int(10) NOT NULL AUTO_INCREMENT,
+ChatRoomId int(10) NOT NULL,
 UserIds varchar(500) NOT NULL,
 IsGroupChat bool,
 GroupName varchar(100) DEFAULT NULL,
