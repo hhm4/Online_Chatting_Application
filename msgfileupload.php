@@ -11,7 +11,7 @@ if(is_uploaded_file($_FILES['userfile']['tmp_name']))
 	echo "$store_dir";
 //	$moveBool = false;
 	$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$upload_dir\\$dest");
-	
+	echo "success";
 /*	if($moveBool)
 	{
 		$myConnection= mysqli_connect("localhost","root","root", "test_user") or die ("could not connect to mysql"); 
