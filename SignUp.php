@@ -36,7 +36,7 @@ $response=array("Result"=>0);
 	
 }
 else{
-	$response=array("Result"=>"1");
+	$response=array("Result"=>1);
 }
 $encoded = json_encode($response);
 header('Content-type: application/json');
