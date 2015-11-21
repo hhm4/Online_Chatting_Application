@@ -10,7 +10,6 @@ $username=$_POST['UserName'];
 $password=$_POST['Password'];
 $email=$_POST['EmailId'];
 $query="select * from USERS where EmailId='$email'";
-echo $query;
 $authentication=mysql_query($query,$con);
 if(mysql_num_rows($authentication)==0)
 {
