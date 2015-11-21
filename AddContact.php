@@ -24,7 +24,7 @@ $contactscheck=mysql_query($contactsquery,$con);
 $contactscount=mysql_num_rows($contactscheck);
   if($contactscount==0)
    {
-	$sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status) values('{$userid}','{$FromId}','{$ContactsName}','{$email}')", $con);
+	$sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status) values('{$userid}','{$FromId}','{$ContactsName}','{$email}'))", $con);
 	$response=array("Result"=>0);
    }
    
