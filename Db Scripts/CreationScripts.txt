@@ -1,0 +1,73 @@
+DROP TABLE hhm4.USERS;
+DROP TABLE hhm4.CHATROOM_USERS;
+DROP TABLE hhm4.CHATMESSAGES;
+DROP TABLE hhm4.CONTACTS;
+DROP TABLE hhm4.UNVERIFIED_USERS;
+DROP TABLE hhm4.TOKEN_VERIFICATION;
+
+CREATE TABLE hhm4.USERS (
+
+UserId int(10) NOT NULL AUTO_INCREMENT,
+UserName varchar(100) NOT NULL,
+EmailId  varchar(250) NOT NULL,
+User_Password varchar(100) NOT NULL,
+UpdatedAt TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+UserStatus int(1)  NOT NULL  DEFAULT '1',
+UserPictureLink varchar(100) DEFAULT NULL,
+StatusUpdate varchar(250) DEFAULT NULL,
+constraint users_pk PRIMARY KEY (UserId),
+constraint users_uk UNIQUE KEY EmailId (EmailId)
+);
+
+
+CREATE TABLE IF NOT EXISTS hhm4.CHATROOM_USERS (
+ChatRoomId int(10) NOT NULL AUTO_INCREMENT,
+UserIds varchar(500) NOT NULL,
+IsGroupChat bool,
+GroupName varchar(100) DEFAULT NULL,
+GroupImage varchar(100) DEFAULT NULL,
+UpdatedAt TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (ChatRoomId)
+);
+
+CREATE TABLE  hhm4.CHATMESSAGES (
+
+MessageId int(10) NOT NULL AUTO_INCREMENT,
+ChatRoomId int(100) NOT NULL,
+FromUserId int(100) NOT NULL,
+Message varchar(1000) DEFAULT NULL,
+MessageLink varchar(250) DEFAULT NULL,
+UpdatedAt TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (MessageId),
+KEY FromUserId (FromUserId)
+);
+
+CREATE TABLE IF NOT EXISTS hhm4.CONTACTS (
+ContactId int(10) NOT NULL AUTO_INCREMENT,
+Contacts_UserId int(100) NOT NULL ,
+Contacts_FromUserId int(100) NOT NULL ,
+Contacts_UserName varchar(100) NOT NULL,
+Contacts_EmailId varchar(100) NOT NULL,
+Contacts_Status bool,
+Contacts_DateAdded TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (ContactId),
+KEY Contacts_UserId (Contacts_UserId)
+);
+
+CREATE TABLE UNVERIFIED_USERS(
+
+Id int(10) NOT NULL AUTO_INCREMENT,
+UserName varchar(100) NOT NULL,
+EmailId  varchar(250) NOT NULL,
+User_Password varchar(100) NOT NULL,
+Token int(100) NOT NULL,
+constraint VerifyToken_pk PRIMARY KEY (Id)
+);
+
+CREATE TABLE TOKEN_VERIFICATION(
+
+Id int(10) NOT NULL AUTO_INCREMENT,
+EmailId  varchar(250) NOT NULL,
+Token int(100) NOT NULL,
+constraint  tokenverify_pk PRIMARY KEY (Id)
+);
