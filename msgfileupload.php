@@ -5,9 +5,10 @@
 //	$upload_dir = 'C:\Users\Kumi\Desktop\phpUpload';
 	$upload_dir = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
 //	$upload_dir_db = 'C:\\\Users\\\Kumi\\\Desktop\\\phpUpload';
-
+echo "hello1";
 	if(is_uploaded_file($_FILES['userfile']['tmp_name']))
 	{
+		echo "hello1"
 		$dest = $_FILES['userfile']['name'];
 		echo $dest;
 //		$dest_db = "\\\\".$dest;
