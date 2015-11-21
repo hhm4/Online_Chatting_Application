@@ -14,6 +14,7 @@ $FromId=$_POST['FromUserId'];
 $query="Select * From USERS where EmailId='$email'";
 $registration=mysql_query($query,$con);
 $count=mysql_num_rows($registration);
+echo $ContactsName;
 if($count!=0)
 {
 $row = mysql_fetch_array($registration, MYSQL_ASSOC);
