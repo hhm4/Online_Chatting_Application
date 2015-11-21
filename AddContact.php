@@ -10,6 +10,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 
 $email=$_POST['EmailId'];
 $ContactsName=$_POST['ContactName'];
+$FromId=$_POST['FromUserId'];
 $query="Select * From USERS where EmailId='$email'";
 $registration=mysql_query($query,$con);
 $count=mysql_num_rows($registration);
@@ -23,7 +24,7 @@ $contactscheck=mysql_query($contactsquery,$con);
 $contactscount=mysql_num_rows($contactscheck);
   if($contactscount==0)
    {
-	$sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contact_UserName,Contact_Status) values('{$userid}','{$ContactsName}','{$userstatus}')", $con);
+	$sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contact_UserName,Contact_Status) values('{$userid}','{$FromId}',{$ContactsName}','{$userstatus}')", $con);
 	$response=array("Result"=>0);
    }
    

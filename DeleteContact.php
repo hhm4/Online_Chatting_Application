@@ -8,46 +8,37 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 
-$email=$_POST['EmailId'];
-$ContactsName=$_POST['ContactName'];
-$query="Select * From USERS where EmailId='$email'";
-$registration=mysql_query($query,$con);
-$count=mysql_num_rows($registration);
+$contactid=$_POST['ContactId'];
+$fromid=$_POST['FromId'];
+$query="Select * From CONTACTS where ContactId='$contactid'";
+$check=mysql_query($query,$con);
+$count=mysql_num_rows($check);
 if($count!=0)
 {
-$row = mysql_fetch_array($registration, MYSQL_ASSOC);
-$userid=$row['UserId'];
-$userstatus=$row['UserStatus'];
-$contactsquery="Select * From CONTACTS where Contacts_UserId='$userid'";
-$contactscheck=mysql_query($contactsquery,$con);
-$contactscount=mysql_num_rows($contactscheck);
-  if($contactscount==0)
-   {
-	$sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contact_UserName,Contact_Status) values('{$userid}','{$ContactsName}','{$userstatus}')", $con);
-	$response=array("Result"=>0);
-   }
-   
-   else
-   {
-	$response=array("Result"=>1);
-   }
+$row = mysql_fetch_array($check, MYSQL_ASSOC);
+$userid=$row['Contacts_UserId'];
+$UserIds1=';'.$fromid.';'.$userid.';';
+$UserIds2= ';'.$userid.';'.$fromid.';';
+$contactquery="Select ChatRoomId From CHATROOM_USERS where UserIds ='$UserIds1' or UserIds ='$UserIds2' ";
+if(mysql_num_rows($contactquery)>0)
+{
 	
+$deletechatmsg=mysql_query("Delete FROM CHATMESSAGES where ChatRoomId='$contactquery'",$con);
+$deletechatroom=mysql_query("Delete FROM CHATROOM_USERS where ChatRoomId='$contactquery'",$con);
+if(mysql_affected_rows($deletechatmsg)>0 && mysql_affected_rows($deletechatroom)>0)
+{
+$removedata=mysql_query("Delete FROM CONTACTS where ContactId='$contactid'",$con);
+
+}
+$response=array("Result"=>0);	
+	
+}
+
+
 }
 
 else
  {
-	 $message = "
-<html><head><title>HTML email</title></head><body><p> Join our Exciting online Chat Application</p><table><tr><th>Please click the below link to join our exciting Chat application</th><th>www.onlinechat.com</th></tr><tr></tr>
-</table></body></html>
-";
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-// More headers
-$headers .= 'From: <Online chat Team>' . "\r\n";
-
-
-	 mail($email, "Join Online Chat",$message,$headers);
 	 $response=array("Result"=>2);
 	 
  }

@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 
 $config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
@@ -19,7 +19,9 @@ $authentication=mysql_query($query,$con);
 $count=mysql_num_rows($authentication);
 
 if ($count>0){
-	$response=array("Result"=>1);
+	$row = mysql_fetch_array($query, MYSQL_ASSOC);
+	 $id=$row['UserId'];
+	$response=array("Result"=>1,"UserId"=>$id);
 }
 else{
 	$response=array("Result"=>0);
