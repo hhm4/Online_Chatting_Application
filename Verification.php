@@ -17,7 +17,7 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
  $count=mysql_num_rows($registration);
  
  if ($count==0){
-	 $response=array("Result"=>0,"query"=>$query);
+	 $response=array("Result"=>0);
  }
  else{
 	 
