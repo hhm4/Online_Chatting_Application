@@ -12,7 +12,7 @@ $email=$_POST['EmailId'];
 $query="select * from USERS where EmailId='$email'";
 echo $query;
 $authentication=mysql_query($query,$con);
-if(mysql_num_rows($authentication)>0)
+if(mysql_num_rows($authentication)==0)
 {
 	$id= rand(10000,20000);
 	$verify=mysql_query("select * from UNVERIFIED_USERS where EmailId='$email'",$con);
