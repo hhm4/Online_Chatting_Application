@@ -19,7 +19,7 @@ $authentication=mysql_query($query,$con);
 $count=mysql_num_rows($authentication);
 
 if ($count>0){
-	$row = mysql_fetch_array($query, MYSQL_ASSOC);
+	$row = mysql_fetch_array($authentication, MYSQL_ASSOC);
 	 $id=$row['UserId'];
 	$response=array("Result"=>1,"UserId"=>$id);
 }
