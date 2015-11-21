@@ -11,11 +11,12 @@ function upload_file()
 	if(is_uploaded_file($_FILES['userfile']['tmp_name']))
 	{
 		$dest = $_FILES['userfile']['name'];
+		echo $dest;
 //		$dest_db = "\\\\".$dest;
 //		$store_dir = $upload_dir_db.$dest_db;
 //		echo "$store_dir";
 		$moveBool = false;
-		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$upload_dir");
+		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$upload_dir/$dest");
 	
 		if($moveBool)
 		{
