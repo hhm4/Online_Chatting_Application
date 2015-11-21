@@ -12,6 +12,7 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 // More headers
 $headers .= 'From: <Online chat Team>' . "\r\n";
 $check= mail($email, "Join Online Chat",$message,$headers);
+echo $check;
 if($check)
 {
 $response=array("Result"=>0);
