@@ -24,7 +24,7 @@ if($dbmaxdate==$lclmaxdate)
 
 else
 {
-$query="Select * From CHATROOM_USERS where UpdatedAt > $lclmaxdate";
+$query="Select * From CHATROOM_USERS where UpdatedAt > '{$lclmaxdate"}';
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
