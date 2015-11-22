@@ -27,7 +27,7 @@ else
 $query="Select * From CHATROOM_USERS where UpdatedAt > $lclmaxdate";
 $newvalues=mysql_query($query,$con);
 $rows = array();
-while($r = mysql_fetch_assoc($result)){
+while($r = mysql_fetch_assoc($newvalues)){
     $rows[] = array('data' => $r);
 	$response = $rows;
 }
