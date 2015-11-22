@@ -15,7 +15,7 @@ $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $sdate=$row['max(UpdatedAt)'];
 $dbmaxdate = date('d/M/Y:H:i:s',strtotime($sdate));
 $lclmaxdate= date('d/M/Y:H:i:s',strtotime($ldate));
-
+echo $lclmaxdate;
 if($dbmaxdate==$lclmaxdate)
 {
  $response = array("Result"=>0);
