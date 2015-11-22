@@ -13,7 +13,8 @@ $query="Select max(UpdatedAt) From CHATROOM_USERS";
 $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $dbmaxdate=$row['max(UpdatedAt)'];
-
+echo $dbmaxdate;
+/* 
 if($dbmaxdate==$lclmaxdate)
 {
  $response = array("Result"=>0);
@@ -35,7 +36,7 @@ while($r = mysql_fetch_assoc($result)){
 
 $encoded = json_encode($response);
 header('Content-type: application/json');
-echo $encoded;
+echo $encoded; */
 mysql_close();
 ?>
 
