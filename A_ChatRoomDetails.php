@@ -13,6 +13,8 @@ $query="Select max(UpdatedAt) From CHATROOM_USERS";
 $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $dbmaxdate=$row['max(UpdatedAt)'];
+$dbmaxdate = strtotime($dbmaxdate);
+echo date('d/M/Y:H:i:s', $dbmaxdate);
 echo $dbmaxdate;
 
 $lclmaxdate = strtotime($lclmaxdate);
