@@ -29,7 +29,7 @@ $newvalues=mysql_query($query,$con);
 $rows = array();
 while($r = mysql_fetch_assoc($result)){
     $rows[] = array('data' => $r);
-	$response = $rows[];
+	$response = $rows;
 }
 	
 
