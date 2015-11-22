@@ -15,41 +15,24 @@ $chatroomid=$_POST[ChatRoomId];
 
 $isgroupchat = $groupchat === 'true'? true: false;
 
-if($isgroupchat)
+/* if($isgroupchat)
 {
 
-$query="Select max(ChatRoomId) From CHATROOM_USERS ";
-$maxroomid=mysql_query($query,$con);
+   $query="Select max(ChatRoomId) From CHATROOM_USERS";
+   $maxroomid=mysql_query($query,$con);
 
-$chatroomid=$maxroomid < 10,00,000? 10,00,000: $maxroomid +1;
-$sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$chatroomid}','{$userids}','{$isgroupchat}','{$groupname}')", $con);
-if($sql)
-{
-$response=array("Result"=>0);
-}
+   $chatroomid=$maxroomid < 10,00,000? 10,00,000: $maxroomid +1;
+   $sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$chatroomid}','{$userids}','{$isgroupchat}','{$groupname}')", $con);
+   $response = $sql ? array("Result"=>0):array("Result"=>2);
 
-else
-{
-	$response=array("Result"=>2);
-	
-}
 }
 
 else
 {
 	$sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$chatroomid}','{$userids}','{$isgroupchat}','{$groupname}')", $con);
-	if($sql)
-{
-$response=array("Result"=>0);
-}
-
-else
-{
-	$response=array("Result"=>2);
+	$response = $sql ? array("Result"=>0):array("Result"=>2);
 	
-}
-	
-}
+} */
 
 $encoded = json_encode($response);
 header('Content-type: application/json');
