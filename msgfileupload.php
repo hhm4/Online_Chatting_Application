@@ -1,7 +1,7 @@
 <?php
-
-//function upload_file()
-//{
+upload_file();
+function upload_file()
+{
 //	$upload_dir = 'C:\Users\Kumi\Desktop\phpUpload';
 echo "hello0";
 	$upload_dir = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
@@ -33,5 +33,5 @@ print_r($_FILES);
 		echo "filename '".$_FILES['userfile']['tmp_name'] ."'.";
 		print_r($_FILES);
 	}
-//}*/
+}
 ?>
