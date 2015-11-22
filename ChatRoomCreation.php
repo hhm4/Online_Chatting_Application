@@ -10,7 +10,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 
 $groupchat=$_POST[IsGroupChat];
 $userids=$_POST[UserIds];
-$groupname=$_POST[GroupName];
+$groupname=$_POST[GroupName1];
 $chatroomid=$_POST[ChatRoomId];
 echo $groupname;
 $isgroupchat = $groupchat === 'true'? true: false;
@@ -23,6 +23,7 @@ if($isgroupchat)
    $row = mysql_fetch_array($max, MYSQL_ASSOC);
    $maxroomid=$row['max(ChatRoomId)'];
    echo $maxroomid;
+   echo $maxroomid++;
    $grpchatroomid=$maxroomid < 1000000 ? 1000000: $maxroomid++;
    $q="Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$grpchatroomid}','{$userids}','{$isgroupchat}','{$groupname}')";
    echo $q;
