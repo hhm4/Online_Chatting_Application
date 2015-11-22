@@ -12,7 +12,6 @@ $groupchat=$_POST[IsGroupChat];
 $userids=$_POST[UserIds];
 $groupname=$_POST[GroupName1];
 $chatroomid=$_POST[ChatRoomId];
-echo $groupname;
 $isgroupchat = $groupchat === 'true'? true: false;
 
 if($isgroupchat)
@@ -22,11 +21,7 @@ if($isgroupchat)
    $max=mysql_query($query,$con);
    $row = mysql_fetch_array($max, MYSQL_ASSOC);
    $maxroomid=$row['max(ChatRoomId)'];
-   echo $maxroomid;
-   echo $maxroomid++;
-   $grpchatroomid=$maxroomid < 1000000 ? 1000000: $maxroomid++;
-   $q="Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$grpchatroomid}','{$userids}','{$isgroupchat}','{$groupname}')";
-   echo $q;
+   $grpchatroomid=$maxroomid < 1000000 ? 1000000: $maxroomid+1;
    $sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$grpchatroomid}','{$userids}','{$isgroupchat}','{$groupname}')", $con);
    $response = $sql ? array("Result"=>0):array("Result"=>2);
 
@@ -34,7 +29,7 @@ if($isgroupchat)
 
 else
 {
-	$sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$chatroomid}','{$userids}','{$isgroupchat}','{$groupname}')", $con);
+	$sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat) values('{$chatroomid}','{$userids}','{$isgroupchat}')", $con);
 	$response = $sql ? array("Result"=>0):array("Result"=>2);
 	
 }
