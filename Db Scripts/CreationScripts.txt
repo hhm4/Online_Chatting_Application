@@ -51,6 +51,8 @@ Contacts_FromUserId int(100) NOT NULL ,
 Contacts_UserName varchar(100) NOT NULL,
 Contacts_EmailId varchar(100) NOT NULL,
 Contacts_Status bool,
+UserPictureLink varchar(100) DEFAULT NULL,
+StatusUpdate varchar(250) DEFAULT NULL,
 Contacts_DateAdded TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (ContactId),
 KEY Contacts_UserId (Contacts_UserId)

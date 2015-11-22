@@ -1,0 +1,56 @@
+
+
+DROP TABLE CHATMESSAGES;
+
+CREATE TABLE USERS (
+
+UserId int(10) NOT NULL ,
+UserName varchar(100) NOT NULL,
+EmailId  varchar(250) NOT NULL,
+User_Password varchar(100) NOT NULL,
+UpdatedAt TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+UserStatus int(1)  NOT NULL  DEFAULT '1',
+UserPictureLink varchar(100) DEFAULT NULL,
+StatusUpdate varchar(250) DEFAULT NULL,
+LocalPath varchar(500) DEFAULT NULL,
+PRIMARY KEY (UserId),  
+UNIQUE (EmailId)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS CHATROOM_USERS (
+ChatRoomId int(10) NOT NULL ,
+UserIds varchar(500) NOT NULL,
+IsGroupChat int(1) NOT NULL DEFAULT 0,
+GroupName varchar(100) DEFAULT NULL,
+GroupImage varchar(100) DEFAULT NULL,
+UpdatedAt TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (ChatRoomId)
+);
+
+CREATE TABLE  CHATMESSAGES (
+
+MessageId int(10) NOT NULL ,
+ChatRoomId int(100) NOT NULL,
+FromUserId int(100) NOT NULL,
+Message varchar(1000) DEFAULT NULL,
+MessageLink varchar(250) DEFAULT NULL,
+UpdatedAt TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (MessageId)
+);
+
+
+CREATE TABLE IF NOT EXISTS CONTACTS (
+ContactId int(10) NOT NULL,
+Contacts_UserId int(100) NOT NULL ,
+Contacts_FromUserId int(100) NOT NULL,
+Contacts_UserName varchar(100) NOT NULL,
+Contacts_EmailId varchar(100) NOT NULL,
+Contacts_Status int(1) NOT NULL DEFAULT 1,
+UserPictureLink varchar(100) DEFAULT NULL,
+StatusUpdate varchar(250) DEFAULT NULL,
+Contacts_DateAdded TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+LocalPath varchar(500) DEFAULT NULL,
+PRIMARY KEY (ContactId)
+);
