@@ -8,19 +8,14 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 
-$lclmaxdate=$_POST['MaxDate'];
+$ldate=$_POST['MaxDate'];
 $query="Select max(UpdatedAt) From CHATROOM_USERS";
 $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
-$dbmaxdate=$row['max(UpdatedAt)'];
-$dbmaxdate = strtotime($dbmaxdate);
-echo date('d/M/Y:H:i:s', $dbmaxdate);
-echo $dbmaxdate;
+$sdate=$row['max(UpdatedAt)'];
+$dbmaxdate = date('d/M/Y:H:i:s',strtotime($sdate));
+$lclmaxdate= date('d/M/Y:H:i:s',strtotime($ldate));
 
-$lclmaxdate = strtotime($lclmaxdate);
-echo date('d/M/Y:H:i:s', $lclmaxdate);
-echo "";
-echo $lclmaxdate;
 if($dbmaxdate==$lclmaxdate)
 {
  $response = array("Result"=>0);
@@ -29,12 +24,12 @@ if($dbmaxdate==$lclmaxdate)
 
 else
 {
-/* $query="Select * From CHATROOM_USERS where UpdatedAt > $lclmaxdate";
+$query="Select * From CHATROOM_USERS where UpdatedAt > $lclmaxdate";
 $newvalues=mysql_query($query,$con);
 $rows = array();
 while($r = mysql_fetch_assoc($result)){
     $rows[] = array('data' => $r);
-	$response = $rows[]; */
+	$response = $rows[];
 }
 	
 
