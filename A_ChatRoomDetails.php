@@ -29,13 +29,12 @@ $newvalues=mysql_query($query,$con);
   {
 	 $chatroomid=$r['ChatRoomId'];
      $rows[]=array('data' => $r);
-	 echo $rows;
+	 echo $chatroomid;
    }
 	
 }
 $encoded = json_encode($response);
 header('Content-type: application/json');
-echo $encoded; 
 mysql_close();
 ?>
 
