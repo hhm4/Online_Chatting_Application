@@ -27,14 +27,14 @@ $query="Select * From CHATROOM_USERS where UpdatedAt > '$ldate'";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
-	 $chatroomid=$r['ChatRoomId'];
-     $rows[]=array('data' => $r);
-	 echo $chatroomid;
+     $rows['ChatRoomDetails'][]=$r;
+	 $response=$rows;
    }
 	
 }
 $encoded = json_encode($response);
 header('Content-type: application/json');
+echo $encoded;
 mysql_close();
 ?>
 
