@@ -29,7 +29,8 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
 	/*  if($sql)
 	 { */
 	 $maxid=mysql_query("Select max(UserId) from USERS", $con);
-	 $row = mysql_fetch_array($registration, MYSQL_ASSOC);
+	 echo $maxid;
+	 $row = mysql_fetch_array($maxid, MYSQL_ASSOC);
 	 $max=$row['max(UserId)'];
 	 $userinfo= mysql_query("Select * from USERS  where UserId='$max'", $con);
 	 while($r = mysql_fetch_assoc($userinfo))
