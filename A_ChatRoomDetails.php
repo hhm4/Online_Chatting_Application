@@ -26,13 +26,13 @@ else
 {
 $query="Select * From CHATROOM_USERS where UpdatedAt > $lclmaxdate";
 $newvalues=mysql_query($query,$con);
-$rows = array();
-while($r = mysql_fetch_assoc($newvalues)){
- echo array('data' => $r);
+  while($r = mysql_fetch_assoc($newvalues))
+  {
+     $rows[]=array('data' => $r);
+	 echo $rows;
+   }
 	
 }
-	
-
 $encoded = json_encode($response);
 header('Content-type: application/json');
 echo $encoded; 
