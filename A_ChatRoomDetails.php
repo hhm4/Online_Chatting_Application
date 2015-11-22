@@ -15,6 +15,10 @@ $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $dbmaxdate=$row['max(UpdatedAt)'];
 echo $dbmaxdate;
 
+$lclmaxdate = strtotime($lclmaxdate);
+echo date('d/M/Y:H:i:s', $lclmaxdate);
+echo "";
+echo $lclmaxdate;
 if($dbmaxdate==$lclmaxdate)
 {
  $response = array("Result"=>0);
@@ -31,8 +35,6 @@ while($r = mysql_fetch_assoc($result)){
 	$response = $rows[]; */
 }
 	
-	
-}
 
 $encoded = json_encode($response);
 header('Content-type: application/json');
