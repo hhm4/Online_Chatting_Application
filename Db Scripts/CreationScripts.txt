@@ -7,7 +7,7 @@ DROP TABLE hhm4.TOKEN_VERIFICATION;
 
 CREATE TABLE hhm4.USERS (
 
-UserId int(10) NOT NULL,
+UserId int(10) NOT NULL AUTO_INCREMENT,
 UserName varchar(100) NOT NULL,
 EmailId  varchar(250) NOT NULL,
 User_Password varchar(100) NOT NULL,
