@@ -13,12 +13,9 @@ $query="Select max(UpdatedAt) From CHATROOM_USERS";
 $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $sdate=$row['max(UpdatedAt)'];
-$dbmaxdate = date('d/M/Y:H:i:s',strtotime($sdate));
-$lclmaxdate= date('d/M/Y:H:i:s',strtotime($ldate));
-$try = date('Y-m-d H:i:s',strtotime($ldate));
-echo $try;
-echo $lclmaxdate;
-if($dbmaxdate==$lclmaxdate)
+$ldate = date('Y-m-d H:i:s',strtotime($ldate));
+
+if($sdate==$ldate)
 {
  $response = array("Result"=>0);
 	
@@ -26,7 +23,7 @@ if($dbmaxdate==$lclmaxdate)
 
 else
 {
-$query="Select * From CHATROOM_USERS where UpdatedAt > '{$lclmaxdate}'";
+$query="Select * From CHATROOM_USERS where UpdatedAt > '$ldate'";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
