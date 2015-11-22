@@ -14,7 +14,7 @@ $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $dbmaxdate=$row['max(UpdatedAt)'];
 echo $dbmaxdate;
-/* 
+
 if($dbmaxdate==$lclmaxdate)
 {
  $response = array("Result"=>0);
@@ -23,12 +23,12 @@ if($dbmaxdate==$lclmaxdate)
 
 else
 {
-$query="Select * From CHATROOM_USERS where UpdatedAt > $lclmaxdate";
+/* $query="Select * From CHATROOM_USERS where UpdatedAt > $lclmaxdate";
 $newvalues=mysql_query($query,$con);
 $rows = array();
 while($r = mysql_fetch_assoc($result)){
     $rows[] = array('data' => $r);
-	$response = $rows[];
+	$response = $rows[]; */
 }
 	
 	
@@ -36,7 +36,7 @@ while($r = mysql_fetch_assoc($result)){
 
 $encoded = json_encode($response);
 header('Content-type: application/json');
-echo $encoded; */
+echo $encoded; 
 mysql_close();
 ?>
 
