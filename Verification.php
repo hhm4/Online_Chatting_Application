@@ -37,8 +37,7 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
      $rows['UserInfo'][]=$r;
    } 
    $contactinfo=mysql_query("Select * from CONTACTS where CONTACTS_FromUserId= '$max'");
-   $row = mysql_fetch_array($contactinfo, MYSQL_ASSOC);
-    while($r = mysql_fetch_assoc($userinfo))
+    while($r = mysql_fetch_assoc($contactinfo))
    {
       $rows1['Contacts'][]=$r;
    }
