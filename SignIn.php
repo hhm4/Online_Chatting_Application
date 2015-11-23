@@ -25,8 +25,6 @@ if ($count>0){
 	  echo "1";
 	 $userid=$r['UserId'];
 	 echo $userid;
-     $userinfo['UserInfo'][]=$r;
-	 echo $userinfo;
    }
    $query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
    $contacts=mysql_query($query1,$con);
@@ -35,7 +33,7 @@ if ($count>0){
      $contacts['contacts'][]=$r;
    }
    echo $contacts;
-	$response=array("Result"=>1,"UserId"=>$id,"UserInfo"=>$userinfo,"Contacts"=>$contacts);
+	$response=array("Result"=>1,"UserId"=>$id);
 	
 }
 else{
