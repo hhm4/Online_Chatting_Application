@@ -38,6 +38,6 @@ print_r($_FILES);
 		echo "Possible file upload attack: ";
 		echo "filename '".$_FILES['userfile']['tmp_name'] ."'.";
 		print_r($_FILES);
-	}
+	}*/
 }
 ?>
