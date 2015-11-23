@@ -26,25 +26,7 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
 	 $pass=$row['User_Password'];
 	 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$name}','{$email}','{$pass}')", $con);
 	 $delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='$email'",$con);
-	 if($sql)
-	 { 
-	 $maxid=mysql_query("Select max(UserId) from USERS", $con);
-	 $row = mysql_fetch_array($maxid, MYSQL_ASSOC);
-	 $max=$row['max(UserId)'];
-	 $userinfo= mysql_query("Select * from USERS  where UserId='$max'", $con);
-	while($r = mysql_fetch_assoc($userinfo))
-   {
-     $rows['UserInfo'][]=$r;
-   } 
-   $contactinfo=mysql_query("Select * from CONTACTS where CONTACTS_FromUserId= '$max'");
-    while($r = mysql_fetch_assoc($contactinfo))
-   {
-      $rows1['Contacts'][]=$r;
-   }
-   $response=array("UserInfo"=>$rows,"Contacts" =>$rows1);
-   
-	  }
-	 
+	  $response=array("Result"=>1);
  }
 
  $encoded = json_encode($response);

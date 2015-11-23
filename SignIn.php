@@ -19,9 +19,21 @@ $authentication=mysql_query($query,$con);
 $count=mysql_num_rows($authentication);
 
 if ($count>0){
-	$row = mysql_fetch_array($authentication, MYSQL_ASSOC);
-	 $id=$row['UserId'];
-	$response=array("Result"=>1,"UserId"=>$id);
+	
+  while($r = mysql_fetch_assoc($authentication))
+  {
+	 $userid=$r['UserId'];
+     $userinfo['UserInfo'][]=$r;
+   }
+   $query="select * from CONTACTS where Contacts_FromUserId='$userid'";
+   $contacts=mysql_query($query,$con);
+    while($r = mysql_fetch_assoc($contacts))
+  {
+     $contacts['contacts'][]=$r;
+   }
+   
+	$response=array("Result"=>1,"UserId"=>$id,"UserInfo"=>$userinfo,"Contacts"=>$contacts);
+	
 }
 else{
 	$response=array("Result"=>0);
