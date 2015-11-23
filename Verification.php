@@ -32,10 +32,10 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
 	 $row = mysql_fetch_array($maxid, MYSQL_ASSOC);
 	 $max=$row['max(UserId)'];
 	 $userinfo= mysql_query("Select * from USERS  where UserId='$max'", $con);
-	/*  while($r = mysql_fetch_assoc($userinfo))
+	while($r = mysql_fetch_assoc($userinfo))
    {
      $rows['UserInfo'][]=$r;
-   } */
+   } 
    $contactinfo=mysql_query("Select * from CONTACTS where CONTACTS_FromUserId= '$max'");
    $row = mysql_fetch_array($contactinfo, MYSQL_ASSOC);
     while($r = mysql_fetch_assoc($userinfo))
