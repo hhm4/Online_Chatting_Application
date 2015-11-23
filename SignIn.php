@@ -21,7 +21,7 @@ $query1="Select * From CONTACTS where CONTACTS_FROMUSERID ='$userid'";
 $newvalues=mysql_query($query1,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
-     $rows['contacts'][]=$r;
+     $rows[]=$r;
    }
     $response=array("Result"=>1,"UserId"=>$userid,"Users"=>$userinfo,"Contacts"=>$rows);
 	
