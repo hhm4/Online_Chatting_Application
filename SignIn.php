@@ -22,7 +22,7 @@ if ($count>0){
 	{
      $contacts['contacts'][]=$r;
 	}	 
-	$response=array("Result"=>1,"UserId"=>$userid,"Contacts"=>$contacts);
+	$response=array("Result"=>1,"UserId"=>$userid);
 	
 }
 else{
