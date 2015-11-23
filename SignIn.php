@@ -30,6 +30,8 @@ if ($count>0){
    $contacts=mysql_query($query1,$con);
     while($r = mysql_fetch_assoc($contacts))
   {
+	  $rr= $r['ContactId'];
+	  echo $rr;
      $contacts['contacts'][]=$r;
    }
    echo $contacts;
