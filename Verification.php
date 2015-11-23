@@ -24,10 +24,10 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	 $name=$row['UserName'];
 	 $pass=$row['User_Password'];
-	 #$sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$name}','{$email}','{$pass}')", $con);
-	 #$delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='$email'",$con);
-	/*  if($sql)
-	 { */
+	 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$name}','{$email}','{$pass}')", $con);
+	 $delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='$email'",$con);
+	 if($sql)
+	 { 
 	 $maxid=mysql_query("Select max(UserId) from USERS", $con);
 	 $row = mysql_fetch_array($maxid, MYSQL_ASSOC);
 	 $max=$row['max(UserId)'];
@@ -44,7 +44,7 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
    }
    $response=$rows;
    
-	 // }
+	  }
 	 
  }
 
