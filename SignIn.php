@@ -18,9 +18,9 @@ if ($count>0){
    
    $query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
    $contacts=mysql_query($query1,$con);
-    while($r =	 mysql_fetch_assoc($contacts))
+    while($r = mysql_fetch_array($contacts))
 	{
-     $contacts['contacts'][]=$r;
+     $contacts["contacts"][]=$r;
 	}	
 	echo $contacts;
 	$response=array("Result"=>1,"UserId"=>$userid);
