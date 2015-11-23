@@ -1,6 +1,8 @@
 <?php
-upload_file();
-function upload_file()
+//upload_file();
+echo "hi";
+print_r($_POST['FromUserId']);
+/*function upload_file()
 {
 //	$upload_dir = 'C:\Users\Kumi\Desktop\phpUpload';
 echo "hello0";
@@ -19,7 +21,9 @@ print_r($_FILES);
 //		$store_dir = $upload_dir_db.$dest_db;
 //		echo "$store_dir";
 		$moveBool = false;
-		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$upload_dir/$dest");
+		$moveBool = move_uploaded_file($_FILES['userfile']
+
+['tmp_name'], "$upload_dir/$dest");
 	
 		if($moveBool)
 		{
@@ -33,5 +37,5 @@ print_r($_FILES);
 		echo "filename '".$_FILES['userfile']['tmp_name'] ."'.";
 		print_r($_FILES);
 	}
-}
+}*/
 ?>
