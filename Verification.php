@@ -29,15 +29,21 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
 	/*  if($sql)
 	 { */
 	 $maxid=mysql_query("Select max(UserId) from USERS", $con);
-	 echo $maxid;
 	 $row = mysql_fetch_array($maxid, MYSQL_ASSOC);
 	 $max=$row['max(UserId)'];
 	 $userinfo= mysql_query("Select * from USERS  where UserId='$max'", $con);
 	 while($r = mysql_fetch_assoc($userinfo))
-  {
+   {
      $rows['UserInfo'][]=$r;
-	 $response=$rows;
    }
+   $contactinfo=mysql_query("Select * from CONTACTS where CONTACTS_FromUserId= '$max'")
+   $row = mysql_fetch_array($contactinfo, MYSQL_ASSOC);
+    while($r = mysql_fetch_assoc($userinfo))
+   {
+     array_push($rows,$r);
+   }
+   $response=$rows;
+   
 	 // }
 	 
  }
