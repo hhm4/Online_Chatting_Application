@@ -11,13 +11,14 @@ $count=mysql_num_rows($authentication);
 
 if ($count>0){
 	
-   while($r = mysql_fetch_assoc($authentication))
+   while($r1 = mysql_fetch_assoc($authentication))
   {
-	 $userinfo ['userinfo'][]=$r;
+	 $userid=$r1['UserId'] ;
+	 $userinfo ['userinfo'][]=$r1;
   }
    
-$query="Select * From CONTACTS where CONTACTS_FROMUSERID ='$userid'";
-$newvalues=mysql_query($query,$con);
+$query1="Select * From CONTACTS where CONTACTS_FROMUSERID ='$userid'";
+$newvalues=mysql_query($query1,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
      $rows['contacts'][]=$r;
