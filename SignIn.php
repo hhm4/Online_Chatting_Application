@@ -22,9 +22,8 @@ $newvalues=mysql_query($query,$con);
   {
      $rows['contacts'][]=$r;
 	 $response=$rows;
-	 echo $response;
    }
-	$response=array("Result"=>1,"UserId"=>$userid);
+	//$response=array("Result"=>1,"UserId"=>$userid);
 	
 }
 else{
