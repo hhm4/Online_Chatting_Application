@@ -1,12 +1,12 @@
 <?php
 echo "hi";
-//upload_file();
+upload_file();
 
 function upload_file()
 {
-//	$FromUserId = $_POST['FromUserId'];
+	$FromUserId = $_POST['FromUserId'];
 //	$upload_dir = 'C:\Users\Kumi\Desktop\phpUpload';
-//echo ['FromUserId'] . $ FromUserId;
+echo ['FromUserId'] . $ FromUserId;
 /*echo "hello0";
 	$upload_dir = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
 //	$upload_dir_db = 'C:\\\Users\\\Kumi\\\Desktop\\\phpUpload';
