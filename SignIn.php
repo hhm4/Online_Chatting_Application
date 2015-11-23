@@ -11,20 +11,17 @@ $count=mysql_num_rows($authentication);
 
 if ($count>0){
 	
-  /* while($r = mysql_fetch_assoc($authentication))
+   while($r = mysql_fetch_assoc($authentication))
   {
 	 $userid=$r['UserId'];
-	 echo $userid;
    }
-   $query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
+   
+   /* $query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
    $contacts=mysql_query($query1,$con);
     while($r = mysql_fetch_assoc($contacts))
   {
 	  $rr= $r['ContactId'];
-	  echo $rr;
-     $contacts['contacts'][]=$r;
-   
-   echo $contacts; */
+     $contacts['contacts'][]=$r; */
 	$response=array("Result"=>1,"UserId"=>$userid);
 	
 }
