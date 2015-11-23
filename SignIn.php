@@ -14,7 +14,7 @@ if ($count>0){
    while($r1 = mysql_fetch_assoc($authentication))
   {
 	 $userid=$r1['UserId'] ;
-	 $userinfo []=$r1;
+	 $userinfo =$r1;
   }
    
 $query1="Select * From CONTACTS where CONTACTS_FROMUSERID ='$userid'";
