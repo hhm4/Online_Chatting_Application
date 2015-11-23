@@ -13,8 +13,8 @@ if ($count>0){
 	
    while($r = mysql_fetch_assoc($authentication))
   {
-	 $userid=$r['UserId'];
-   }
+	 $userinfo ['userinfo'][]=$r;
+  }
    
 $query="Select * From CONTACTS where CONTACTS_FROMUSERID ='$userid'";
 $newvalues=mysql_query($query,$con);
@@ -22,7 +22,7 @@ $newvalues=mysql_query($query,$con);
   {
      $rows['contacts'][]=$r;
    }
-    $response=array("Result"=>1,"UserId"=>$userid,"Contacts"=>$rows);
+    $response=array("Result"=>1,"UserId"=>$userid,"Users"=>$userinfo,"Contacts"=>$rows);
 	
 }
 else{
