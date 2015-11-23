@@ -1,9 +1,9 @@
 <?php
 echo "hi";
-upload_file();
+//upload_file();
 
-function upload_file()
-{
+//function upload_file()
+//{
 	$FromUserId = $_POST['FromUserId'];
 //	$upload_dir = 'C:\Users\Kumi\Desktop\phpUpload';
 echo $ FromUserId;
@@ -39,5 +39,5 @@ print_r($_FILES);
 		echo "filename '".$_FILES['userfile']['tmp_name'] ."'.";
 		print_r($_FILES);
 	}*/
-}
+//}
 ?>
