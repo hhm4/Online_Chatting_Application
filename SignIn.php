@@ -28,7 +28,7 @@ if ($count>0){
      $userinfo['UserInfo'][]=$r;
 	 echo $userinfo;
    }
-   /$query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
+   $query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
    $contacts=mysql_query($query1,$con);
     while($r = mysql_fetch_assoc($contacts))
   {
