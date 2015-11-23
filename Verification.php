@@ -40,9 +40,9 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
    $row = mysql_fetch_array($contactinfo, MYSQL_ASSOC);
     while($r = mysql_fetch_assoc($userinfo))
    {
-      $rows['Contacts'][]=$r;
+      $rows1['Contacts'][]=$r;
    }
-   $response=$rows;
+   $response=array("UserInfo"=>$rows,"Contacts" =>$rows1);
    
 	  }
 	 
