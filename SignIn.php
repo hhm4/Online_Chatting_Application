@@ -21,7 +21,8 @@ if ($count>0){
     while($r =	 mysql_fetch_assoc($contacts))
 	{
      $contacts['contacts'][]=$r;
-	}	 
+	}	
+	echo $contacts;
 	$response=array("Result"=>1,"UserId"=>$userid);
 	
 }
