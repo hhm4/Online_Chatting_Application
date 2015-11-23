@@ -11,7 +11,7 @@ $count=mysql_num_rows($authentication);
 
 if ($count>0){
 	
-  while($r = mysql_fetch_assoc($authentication))
+  /* while($r = mysql_fetch_assoc($authentication))
   {
 	 $userid=$r['UserId'];
 	 echo $userid;
@@ -23,9 +23,9 @@ if ($count>0){
 	  $rr= $r['ContactId'];
 	  echo $rr;
      $contacts['contacts'][]=$r;
-   }
-   echo $contacts;
-	$response=array("Result"=>1,"UserId"=>$id);
+   
+   echo $contacts; */
+	$response=array("Result"=>1,"UserId"=>$userid);
 	
 }
 else{
