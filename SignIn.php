@@ -22,17 +22,18 @@ if ($count>0){
 	
   while($r = mysql_fetch_assoc($authentication))
   {
+	  echo "1";
 	 $userid=$r['UserId'];
 	 echo $userid;
      $userinfo['UserInfo'][]=$r;
+	 echo $userinfo;
    }
-   $query="select * from CONTACTS where Contacts_FromUserId='$userid'";
-   $contacts=mysql_query($query,$con);
+   /$query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
+   $contacts=mysql_query($query1,$con);
     while($r = mysql_fetch_assoc($contacts))
   {
      $contacts['contacts'][]=$r;
    }
-   echo $userinfo;
    echo $contacts;
 	$response=array("Result"=>1,"UserId"=>$id,"UserInfo"=>$userinfo,"Contacts"=>$contacts);
 	
