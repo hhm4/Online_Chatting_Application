@@ -21,9 +21,8 @@ $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
      $rows['contacts'][]=$r;
-	 $response=$rows;
    }
-	//$response=array("Result"=>1,"UserId"=>$userid);
+    $response=array("Result"=>1,"UserId"=>$userid,"Contacts"=>$rows);
 	
 }
 else{
