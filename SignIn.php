@@ -16,13 +16,13 @@ if ($count>0){
 	 $userid=$r['UserId'];
    }
    
-   /* $query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
+   $query1="select * from CONTACTS where Contacts_FromUserId='$userid'";
    $contacts=mysql_query($query1,$con);
-    while($r = mysql_fetch_assoc($contacts))
-  {
-	  $rr= $r['ContactId'];
-     $contacts['contacts'][]=$r; */
-	$response=array("Result"=>1,"UserId"=>$userid);
+    while($r =	 mysql_fetch_assoc($contacts))
+	{
+     $contacts['contacts'][]=$r;
+	}	 
+	$response=array("Result"=>1,"UserId"=>$userid,"Contacts"=>$contacts);
 	
 }
 else{
