@@ -24,12 +24,10 @@ if($sdate==$ldate)
 
 else
 {
-echo "1";
 $fromid=';'.$fromid.';';
-echo $fromid;
 $chatroomids="Select ChatRoomId from ChatRoom_Users where UpdatedAt > ldate";	
 $result=mysql_query($chatroomids,$con);
-$query="Select * From CHATMESSAGES where ChatRoomId in '$result'";
+$query="Select * From CHATMESSAGES where UpdatedAt > '$ldate'";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
