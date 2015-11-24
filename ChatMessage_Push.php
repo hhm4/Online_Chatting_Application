@@ -36,8 +36,8 @@ else
 		if($moveBool==1)
 		{
 			echo "hi";
-//			 $response = array("Result"=>0);
-				$response = 0;
+			 $response = array("Result"=>0);
+//				$response = 0;
 		}
 		else
 		{
