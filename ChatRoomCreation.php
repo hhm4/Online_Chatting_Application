@@ -21,6 +21,7 @@ if($isgroupchat)
    $max=mysql_query($query,$con);
    $row = mysql_fetch_array($max, MYSQL_ASSOC);
    $maxroomid=$row['max(ChatRoomId)'];
+   echo $maxroomid;
    $grpchatroomid=$maxroomid < 1000000 ? 1000000: $maxroomid+1;
    $sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$grpchatroomid}','{$userids}','{$isgroupchat}','{$groupname}')", $con);
    $response = $sql ? array("Result"=>0):array("Result"=>2);
