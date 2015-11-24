@@ -10,13 +10,13 @@ $dbCon=mysql_select_db($config['database'], $con);
 
 $ldate=$_POST['MaxDate'];
 $fromid=$_POST['FromId'];
-$query="Select max(UpdatedAt) From CONTACTS";
+$query="Select max(Contacts_DateAdded) From CONTACTS";
 $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
-$sdate=$row['max(UpdatedAt)'];
+$sdate=$row['max(Contacts_DateAdded)'];
 $ldate = date('Y-m-d H:i:s',strtotime($ldate));
 echo $ldate;
-echo $date;
+echo $sdate;
 
 if($sdate==$ldate)
 {
