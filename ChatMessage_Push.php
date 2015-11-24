@@ -32,7 +32,7 @@ else
 //		echo "$store_dir";
 		$moveBool = false;
 		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
-	
+	echo "moveBool:".$moveBool;
 		if($moveBool)
 		{
 //			 $response = array("Result"=>0);
@@ -42,7 +42,7 @@ else
 		{
 			$reponse = 2;
 		}
-		echo $response;
+		echo "response:".$response
 	}
 	else
 	{
