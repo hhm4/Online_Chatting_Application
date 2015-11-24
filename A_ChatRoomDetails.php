@@ -9,6 +9,7 @@ if(!$con)
 $dbCon=mysql_select_db($config['database'], $con);
 
 $ldate=$_POST['MaxDate'];
+$fromid=$_POST['FromId'];
 $query="Select max(UpdatedAt) From CHATROOM_USERS";
 $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
@@ -23,7 +24,7 @@ if($sdate==$ldate)
 
 else
 {
-$query="Select * From CHATROOM_USERS where UpdatedAt > '$ldate'";
+$query="CALL Fetch_ChatRoomDetails('$fromid','$ldate')";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
