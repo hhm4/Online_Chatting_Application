@@ -8,7 +8,7 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 $upload_dir = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
-$upload_dir_db = 'C:\\\Users\\\Kumi\\\Desktop\\\phpUpload';
+$upload_dir_db = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
 $istextmsg=$_POST[IsTextMessage];
 $message=$_POST[Message];
 $fromuserid=$_POST[FromUserId];
@@ -27,18 +27,14 @@ else
 {
 	if(is_uploaded_file($_FILES['userfile']['tmp_name']))
 	{
-		echo "hello2";
 		$dest = $_FILES['userfile']['name'];
-		print_r($_FILES);
 		echo $dest;
 		echo $upload_dir/$dest;
-		$dest_db = "\\\\".$dest;
+		$dest_db = "/".$dest;
 		$store_dir = $upload_dir_db.$dest_db;
 		echo "$store_dir";
 		$moveBool = false;
-		$moveBool = move_uploaded_file($_FILES['userfile']
-
-['tmp_name'], "$upload_dir/$dest");
+		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
 	
 		if($moveBool)
 		{
