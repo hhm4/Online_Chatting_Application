@@ -15,9 +15,6 @@ $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $sdate=$row['max(UpdatedAt)'];
 $ldate = date('Y-m-d H:i:s',strtotime($ldate));
-echo $ldate;
-echo $sdate;
-
 if($sdate==$ldate)
 {
  $response = array("Result"=>0);
@@ -28,9 +25,7 @@ else
 {
 
 $query=mysql_query("CALL Fetch_Messages('$fromid','$ldate')",$con);
-//$query="Select * From CHATMESSAGES where UpdatedAt > '$ldate' and ChatRoomId IN ($result)";
-$newvalues=mysql_query($query,$con);
-  while($r = mysql_fetch_assoc($newvalues))
+  while($r = mysql_fetch_assoc($query))
   {
      $rows['Messages'][]=$r;
 	
