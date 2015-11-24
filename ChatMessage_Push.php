@@ -42,7 +42,7 @@ else
 		{
 			$reponse = 2;
 		}
-		echo "response:".$response
+		echo "response:".$response;
 	}
 	else
 	{
