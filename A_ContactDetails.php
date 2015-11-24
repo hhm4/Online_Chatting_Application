@@ -15,8 +15,7 @@ $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $sdate=$row['max(Contacts_DateAdded)'];
 $ldate = date('Y-m-d H:i:s',strtotime($ldate));
-echo $ldate;
-echo $sdate;
+
 
 if($sdate==$ldate)
 {
@@ -26,7 +25,7 @@ if($sdate==$ldate)
 
 else
 {
-$query="Select * From CONTACTS where UpdatedAt > '$ldate'";
+$query="Select * From CONTACTS where Contacts_DateAdded > '$ldate' AND Contacts_FromUserId ='$fromid'";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
