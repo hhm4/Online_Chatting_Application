@@ -33,7 +33,7 @@ else
 		$moveBool = false;
 		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
 	echo "moveBool:".$moveBool;
-		if($moveBool)
+		if($moveBool==1)
 		{
 //			 $response = array("Result"=>0);
 				$reponse = 0;
