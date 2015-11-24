@@ -9,6 +9,7 @@ if(!$con)
 $dbCon=mysql_select_db($config['database'], $con);
 
 $ldate=$_POST['MaxDate'];
+$fromid=$_POST['FromId'];
 $query="Select max(UpdatedAt) From CONTACTS";
 $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
@@ -23,7 +24,7 @@ if($sdate==$ldate)
 
 else
 {
-$query="Select * From CONTACTS where UpdatedAt > '$ldate'";
+$query="Select * From CONTACTS where UpdatedAt > '$ldate' and CONTACTS_FROMUSERID = '$fromid'";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
