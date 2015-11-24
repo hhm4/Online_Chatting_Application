@@ -30,7 +30,6 @@ else
 		$dest = $_FILES['userfile']['name'];
 		echo $dest;
 		echo $upload_dir/$dest;
-		$dest_db = "/".$dest;
 		$store_dir = $upload_dir_db.$dest_db;
 		echo "$store_dir";
 		$moveBool = false;
