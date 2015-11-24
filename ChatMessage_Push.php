@@ -37,11 +37,11 @@ else
 		{
 			echo "hi";
 //			 $response = array("Result"=>0);
-				$reponse = 0;
+				$response = 0;
 		}
 		else
 		{
-			$reponse = 2;
+			$response = 2;
 		}
 		echo "response:".$response;
 	}
