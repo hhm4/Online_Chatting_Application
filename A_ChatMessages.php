@@ -25,7 +25,7 @@ if($sdate==$ldate)
 else
 {
 $fromid=';'.$fromid.';';
-$chatroomids="Select ChatRoomId from ChatRoom_Users where UserIds like '%$fromid%'";	
+$chatroomids="Select ChatRoomId from ChatRoom_Users where UpdatedAt > ldate";	
 $result=mysql_query($chatroomids,$con);
 $query="Select * From CHATMESSAGES where ChatRoomId in '$result'";
 $newvalues=mysql_query($query,$con);
