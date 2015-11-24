@@ -27,7 +27,7 @@ else
 $query=mysql_query("CALL Fetch_Messages('$fromid','$ldate')",$con);
   while($r = mysql_fetch_assoc($query))
   {
-     $rows['Messages']=$r;
+     $rows['Messages'][]=$r;
 	
 	$response=$rows;
    }
