@@ -24,7 +24,7 @@ if($sdate==$ldate)
 
 else
 {
-$query="Select * From CONTACTS where UpdatedAt > '$ldate' and CONTACTS_FROMUSERID = '$fromid'";
+$query="Select * From CONTACTS where UpdatedAt > '$ldate'";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
