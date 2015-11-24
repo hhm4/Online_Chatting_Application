@@ -15,6 +15,8 @@ $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
 $sdate=$row['max(UpdatedAt)'];
 $ldate = date('Y-m-d H:i:s',strtotime($ldate));
+echo $ldate;
+echo $sdate;
 
 if($sdate==$ldate)
 {
