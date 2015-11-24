@@ -9,6 +9,7 @@ if(!$con)
 $dbCon=mysql_select_db($config['database'], $con);
 
 $ldate=$_POST['MaxDate'];
+$fromid=$_POST['FromId'];
 $query="Select max(UpdatedAt) From CHATMESSAGES";
 $max=mysql_query($query,$con);
 $row = mysql_fetch_array($max, MYSQL_ASSOC);
@@ -23,7 +24,10 @@ if($sdate==$ldate)
 
 else
 {
-$query="Select * From CHATMESSAGES where UpdatedAt > '$ldate'";
+$fromid=';'.$fromid.';';
+$chatroomids="Select ChatRoomId from ChatRoom_Users where UserIds like '%$fromid%'";	
+$result=mysql_query($chatroomids,$con);
+$query="Select * From CHATMESSAGES where UpdatedAt > '$ldate' AND ChatRoomId in '$result'";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
