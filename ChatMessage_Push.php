@@ -29,7 +29,7 @@ else
 	{
 		$dest = $_FILES['userfile']['name'];
 		$store_dir = $upload_dir_db.$dest;
-		echo "$store_dir";
+//		echo "$store_dir";
 		$moveBool = false;
 		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
 	
@@ -42,7 +42,7 @@ else
 		{
 			$reponse = 2;
 		}
-	
+		echo $response;
 	}
 	else
 	{
