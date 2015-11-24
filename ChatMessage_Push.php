@@ -35,6 +35,7 @@ else
 	echo "moveBool:".$moveBool;
 		if($moveBool==1)
 		{
+			echo "hi";
 //			 $response = array("Result"=>0);
 				$reponse = 0;
 		}
