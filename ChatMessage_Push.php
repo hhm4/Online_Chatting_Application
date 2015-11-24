@@ -28,8 +28,6 @@ else
 	if(is_uploaded_file($_FILES['userfile']['tmp_name']))
 	{
 		$dest = $_FILES['userfile']['name'];
-		echo $dest;
-		echo $upload_dir/$dest;
 		$store_dir = $upload_dir_db.$dest;
 		echo "$store_dir";
 		$moveBool = false;
