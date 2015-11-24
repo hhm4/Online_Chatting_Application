@@ -35,7 +35,12 @@ else
 	
 		if($moveBool)
 		{
-			 $response = array("Result"=>0);
+//			 $response = array("Result"=>0);
+				$reponse = 0;
+		}
+		else
+		{
+			$reponse = 2;
 		}
 	
 	}
