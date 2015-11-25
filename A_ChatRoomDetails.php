@@ -24,7 +24,7 @@ if($sdate==$ldate)
 
 else
 {
-$query="CALL Fetch_ChatRoomDetails('$fromid','$ldate')";
+$query="CALL Fetch_ChatRoomDetails('$fromid','$ldate') ";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
