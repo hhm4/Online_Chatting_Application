@@ -19,7 +19,7 @@ if($count!=0)
 $row = mysql_fetch_array($registration, MYSQL_ASSOC);
 $userid=$row['UserId'];
 $userstatus=$row['UserStatus'];
-$contactsquery="Select * From CONTACTS where Contacts_UserId='$userid'";
+$contactsquery="Select * From CONTACTS where Contacts_UserId='$userid' AND Contacts_FromUserId='FromId'";
 $contactscheck=mysql_query($contactsquery,$con);
 $contactscount=mysql_num_rows($contactscheck);
   if($contactscount==0)
