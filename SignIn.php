@@ -25,11 +25,11 @@ $newvalues=mysql_query($query1,$con);
    }
 
 
-   $query2="select * from CHATROOM_USERS WHERE UserIds like %;'$userid';%";
+   $query2="select * from CHATROOM_USERS WHERE UserIds like '%;$userid;%'";
    $chatroom=mysql_query($query2,$con);
-   while($r = mysql_fetch_assoc($chatroom))
+   while($s = mysql_fetch_assoc($chatroom))
   {
-     $chatroomrows[]=$r;
+     $chatroomrows[]=$s;
    }
     $response=array("Result"=>1,"UserId"=>$userid,"Users"=>$userinfo,"Contacts"=>$rows,"Chatroom"=>$chatroomrows);
 	
