@@ -31,7 +31,15 @@ $newvalues=mysql_query($query1,$con);
   {
      $chatroomrows[]=$s;
    }
-    $response=array("Result"=>1,"UserId"=>$userid,"Users"=>$userinfo,"Contacts"=>$rows,"Chatroom"=>$chatroomrows);
+
+$query3="SELECT * FROM CHATMESSAGES WHERE ChatRoomId in ( Select ChatRoomId from CHATROOM_USERS where UserIds like '%;$userid;%')";
+$chatmessages=mysql_query($query3,$con);
+while($t = mysql_fetch_assoc($chatmessages))
+  {
+     $chatmessagerows[]=$t;
+   }
+
+    $response=array("Result"=>1,"UserId"=>$userid,"Users"=>$userinfo,"Contacts"=>$rows,"Chatroom"=>$chatroomrows,"Chatmessage"=>$chatmessagerows);
 	
 }
 else{
