@@ -30,26 +30,19 @@ else
 	{
 		$dest = $_FILES['userfile']['name'];
 		$store_dir = $upload_dir_db.$dest;
-//		echo "$store_dir";
 		$moveBool = false;
 		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
-	echo "moveBool:".$moveBool;
 		if($moveBool==1)
 		{
-			echo "hi";
 			 $response = array("Result"=>0);
-//				$response = 0;
 		}
 		else
 		{
 			$response = 2;
 		}
-		echo "response:".$response;
 	}
 	else
 	{
-		echo "Possible file upload attack: ";
-		echo "filename '".$_FILES['userfile']['tmp_name'] ."'.";
 		print_r($_FILES);
 	}
 	
