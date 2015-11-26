@@ -26,7 +26,7 @@ if($istextmsg)
    else
   {  $response = array("Result"=> 2);  }
 
-
+}
 else
 {
 	if(is_uploaded_file($_FILES['userfile']['tmp_name']))
