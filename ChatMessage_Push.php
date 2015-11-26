@@ -20,9 +20,14 @@ if($istextmsg)
    $query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,Message) values('{$chatroomid}','{$fromuserid}','{$message}')", $con);
    $result=mysql_query($query,$con);
    echo $result;
-   $response = $result ? array("Result"=>2):array("Result"=>0);
+   if($result)
+   {
 
-}
+    $response = array("Result"=> 0); 	   }
+
+   else
+  {  $response = array("Result"=> 2);  }
+
 
 else
 {
