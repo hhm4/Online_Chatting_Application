@@ -18,9 +18,7 @@ $istextmsg = $istextmsg === 'true'? true: false;
 if($istextmsg)
 {
    $query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,Message) values('{$chatroomid}','{$fromuserid}','{$message}')", $con);
-   $result=mysql_query($query,$con);
-   echo $result;
-   if($result)
+   if($query)
    {
 
     $response = array("Result"=> 0); 	   }
