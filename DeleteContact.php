@@ -16,7 +16,7 @@ if($count!=0)
 {
 $row = mysql_fetch_array($check, MYSQL_ASSOC);
 $emailid=$row['Contacts_EmailId'];
-$removedata=mysql_query(" Update CONTACTS SET IsAContact=0 ,Contacts_UserName='$emailid',UpdatedAt= null  where ContactId='$contactid'",$con);
+$removedata=mysql_query(" Update CONTACTS SET IsAContact=0 ,Contacts_UserName='$emailid',Contacts_DateAdded= null  where ContactId='$contactid'",$con);
 $response=array("Result"=>0);	
 }
 
