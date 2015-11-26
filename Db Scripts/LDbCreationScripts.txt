@@ -26,6 +26,7 @@ IsGroupChat int(1) NOT NULL DEFAULT 0,
 GroupName varchar(100) DEFAULT NULL,
 GroupImage varchar(100) DEFAULT NULL,
 UpdatedAt TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+LocalPath varchar(500) DEFAULT NULL,
 PRIMARY KEY (ChatRoomId)
 );
 
@@ -37,6 +38,7 @@ FromUserId int(100) NOT NULL,
 Message varchar(1000) DEFAULT NULL,
 MessageLink varchar(250) DEFAULT NULL,
 UpdatedAt TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+LocalPath varchar(500) DEFAULT NULL,
 PRIMARY KEY (MessageId)
 );
 

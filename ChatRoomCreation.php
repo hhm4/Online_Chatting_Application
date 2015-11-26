@@ -30,7 +30,11 @@ if($isgroupchat)
 else
 {
 	$sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat) values('{$chatroomid}','{$userids}','{$isgroupchat}')", $con);
-	$response = $sql ? array("Result"=>0):array("Result"=>2);
+	$query="Select max(ChatRoomId) From CHATROOM_USERS";
+    $max=mysql_query($query,$con);
+    $row = mysql_fetch_array($max, MYSQL_ASSOC);
+    $maxroomid=$row['max(ChatRoomId)'];
+	$response = $sql ? array("Result"=>0,"ChatRoomId"=>$maxroomid):array("Result"=>2);
 	
 }
 
