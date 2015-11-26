@@ -1,12 +1,12 @@
 <?php
 
 $config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
-$con=mysqli_connect($config['host'],$config['username'],$config['password']);
+$con=mysql_connect($config['host'],$config['username'],$config['password']);
 if(!$con)
 {
 	print "Not connected";
 }
-$dbCon=mysqli_select_db($config['database'], $con);
+$dbCon=mysql_select_db($config['database'], $con);
 $upload_dir = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
 $upload_dir_db = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
 $istextmsg=$_POST[IsTextMessage];
@@ -17,9 +17,8 @@ $istextmsg = $istextmsg === 'true'? true: false;
 
 if($istextmsg)
 {
-   $query=mysqli_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,Message) values('{$chatroomid}','{$fromuserid}','{$message}')", $con);
+   $query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,Message) values('{$chatroomid}','{$fromuserid}','{$message}')", $con);
    echo $query;
-   echo $con->affected_rows;
    if($query)
    {
 
