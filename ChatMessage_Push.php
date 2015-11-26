@@ -24,7 +24,7 @@ if($istextmsg)
     $response = array("Result"=> 0); 	   }
 
    else
-  {  $response = array("Result"=> 2);  }
+  {  $response = array("Result"=> 1);  }
 
 }
 else
@@ -41,7 +41,7 @@ else
 		}
 		else
 		{
-			$response = 2;
+			$response = 1;
 		}
 	}
 	else
