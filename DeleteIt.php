@@ -1,16 +1,74 @@
 <?php
-// Example 1
-$pizza  = "piece1;piece2;piece3;piece4;piece5;piece6";
-$pieces = explode(";", $pizza);
 
-foreach ($pieces as $p)
+$config=parse_ini_file("/afs/cad/u/h/h/hhm4/public_html/.mysql.ini",false,true);
+$con=mysql_connect($config['host'],$config['username'],$config['password']);
+if(!$con)
 {
+	print "Not connected";
+}
+$dbCon=mysql_select_db($config['database'], $con);
+$upload_dir = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
+$upload_dir_db = '/afs/cad/u/h/h/hhm4/public_html/UPLOADS/';
+$istextmsg=$_POST[IsTextMessage];
+$message=$_POST[Message];
+$fromuserid=$_POST[FromUserId];
+$chatroomid=$_POST[ChatRoomId];
+$istextmsg = $istextmsg === 'true'? true: false;
+
+if($istextmsg)
+{
+   $query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,Message) values('{$chatroomid}','{$fromuserid}','{$message}')", $con);
+   if(mysql_affected_rows()==1)
+   {
+
+    $response = array("Result"=> 0); 	
 	
-	echo "Current Value ".$p;
+	$update = mysql_query("Select UserIds from CHATROOM_USERS where ChatRoomId='$chatroomid'",$con);
+	$row = mysql_fetch_array($update, MYSQL_ASSOC);
+    $userids=$row['UserIds'];
+	echo $userids;
+	$userids= explode(";",$userids);
+    foreach ($userids as $p)
+    {
+	echo "Current id ".$p;
+	}
+
+
+
+
+	}
+
+   else
+  {  $response = array("Result"=> 1);  }
+
+}
+else
+{
+	if(is_uploaded_file($_FILES['userfile']['tmp_name']))
+	{
+		$dest = $_FILES['userfile']['name'];
+		$store_dir = $upload_dir_db.$dest;
+		$moveBool = false;
+		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
+		if($moveBool==1)
+		{
+			 $response = array("Result"=>0);
+		}
+		else
+		{
+			$response = 1;
+		}
+	}
+	else
+	{
+		print_r($_FILES);
+	}
 	
 }
-echo count($pieces);
-echo $pieces[0]; // piece1
-echo $pieces[1]; // piece2
 
+$encoded = json_encode($response);
+header('Content-type: application/json');
+echo $encoded;
+mysql_close();
 ?>
+
