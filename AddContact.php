@@ -22,7 +22,6 @@ $userstatus=$row['UserStatus'];
 $contactsquery="Select * From CONTACTS where Contacts_UserId='$userid' AND Contacts_FromUserId='$FromId'";
 $contactscheck=mysql_query($contactsquery,$con);
 $contactscount=mysql_num_rows($contactscheck);
-echo $contactscount;
   if($contactscount==0)
    {
 	$sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status) values('{$userid}','{$FromId}','{$ContactsName}','{$email}',1)", $con);
@@ -30,8 +29,7 @@ echo $contactscount;
    }
    else
    {
-    echo "hi";
-	$data=mysql_query(" Update CONTACTS SET IsAContact=1,Contacts_UserName='$ContactsName',Contacts_DateAdded= null  where ContactId='$contactid'",$con);
+	$data=mysql_query(" Update CONTACTS SET IsAContact=1 ,Contacts_UserName='$ContactsName',Contacts_DateAdded= null  where ContactId='$contactid'",$con);
 	$response=array("Result"=>0);
    }
 	
