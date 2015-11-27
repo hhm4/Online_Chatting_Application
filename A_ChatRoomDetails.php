@@ -28,8 +28,8 @@ $query="CALL Fetch_ChatRoomDetails('$fromid','$ldate') ";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
-     $rows['ChatRoomDetails'][]=$r;
-	 $response=$rows;
+     $rows[]=$r;
+	 $response= array("Result"=> 1,"ChatRoomDetails"=>$rows);
    }
 	
 }
