@@ -17,9 +17,7 @@ $istextmsg = $istextmsg === 'true'? true: false;
 
 if($istextmsg)
 {
-   mysql_query('SET foreign_key_checks = 1');
    $query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,Message) values('{$chatroomid}','{$fromuserid}','{$message}')", $con);
-   echo $query;
    if(!$query)
    {
 
