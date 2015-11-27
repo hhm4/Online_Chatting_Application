@@ -57,7 +57,7 @@ else
 
 function checknonexistinguser()
 {
-	
+	$update = mysql_query("select UserIds from CHATROOM_USERS where ChatRoomId='$chatroomid'")
 	$row = mysql_fetch_array($update, MYSQL_ASSOC);
     $userids=$row['UserIds'];
 	$userids= explode(";",$userids);
