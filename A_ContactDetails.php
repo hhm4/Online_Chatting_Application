@@ -30,7 +30,7 @@ $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
      $rows['Contacts'][]=$r;
-	 $response= array("Result"=> 1,"Contacts"=>$rows);
+	 $response= array("Result"=> 1,$rows);
    }
 	
 }
