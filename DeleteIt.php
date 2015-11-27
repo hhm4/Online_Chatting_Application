@@ -32,7 +32,7 @@ if($istextmsg)
     {
 	 
 	 $chk= mysql_query("Select * from CONTACTS where Contacts_FromUserId='$fromuserid' AND Contacts_UserId='$p'",$con);
-	 echo $chk;
+	 echo "Select * from CONTACTS where Contacts_FromUserId='$fromuserid' AND Contacts_UserId='$p'";
 	 $count=mysql_num_rows($chk);
 	 echo $count;
 	 if(count<=0 && $fromuserid!=$p)
