@@ -24,7 +24,7 @@ if($sdate==$ldate)
 
 else
 {
-$query="Select * from Users where UserId='$fromid' ";
+$query="Select * from USERS where UserId='$fromid' ";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
