@@ -64,7 +64,7 @@ function checknonexistinguser()
     foreach ($userids as $p)
     {
 	 
-	 $chk= mysql_query("Select * from CONTACTS where Contacts_FromUserId='$fromuserid' AND Contacts_UserId='$p'",$con);)
+	 $chk= mysql_query("Select * from CONTACTS where Contacts_FromUserId='$fromuserid' AND Contacts_UserId='$p'",$con);
 	 $count=mysql_num_rows($chk);
 	 echo $count;
 	 if(count<=0)
