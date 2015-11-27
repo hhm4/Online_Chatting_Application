@@ -75,3 +75,4 @@ EmailId  varchar(250) NOT NULL,
 Token int(100) NOT NULL,
 constraint  tokenverify_pk PRIMARY KEY (Id)
 );
+ALTER TABLE CONTACTS ADD CONSTRAINT uniq UNIQUE(Contacts_EmailId,Contacts_FromUserId);
