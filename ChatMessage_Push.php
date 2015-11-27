@@ -21,7 +21,36 @@ if($istextmsg)
    if(mysql_affected_rows()==1)
    {
 
-    $response = array("Result"=> 0); 	   }
+    $response = array("Result"=> 0); 
+    $update = mysql_query("select UserIds from CHATROOM_USERS where ChatRoomId='$chatroomid'",$con);
+	$row = mysql_fetch_array($update, MYSQL_ASSOC);
+    $userids=$row['UserIds'];
+	echo $userids;
+	$userids= explode(";",$userids);
+    foreach ($userids as $p)
+    {
+	 
+	 $chk= mysql_query("Select * from CONTACTS where Contacts_FromUserId='$fromuserid' AND Contacts_UserId='$p'",$con);
+	 echo "Select * from CONTACTS where Contacts_FromUserId='$fromuserid' AND Contacts_UserId='$p'";
+	 echo PHP_EOL;
+	 $count=mysql_num_rows($chk);
+	 echo $count;
+	 if($count==0 && $fromuserid!=$p)
+	 {
+		 $sql1=mysql_query("Select * from USERS where UserId='$p'",$con);
+		 $row = mysql_fetch_array($sql1, MYSQL_ASSOC);
+		 $email=$row['EmailId'];
+		 echo $email;
+		 $sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status) values('{$p}','{$fromuserid}','{$email}','{$email}',0)", $con);
+		 
+	 }
+	}
+
+
+
+
+
+	}
 
    else
   {  $response = array("Result"=> 1);  }
