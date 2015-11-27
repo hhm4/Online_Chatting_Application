@@ -26,7 +26,6 @@ if($istextmsg)
 	$update = mysql_query("Select UserIds from CHATROOM_USERS where ChatRoomId='$chatroomid'",$con);
 	$row = mysql_fetch_array($update, MYSQL_ASSOC);
     $userids=$row['UserIds'];
-	echo ""
 	echo $userids;
 	$userids= explode(";",$userids);
     foreach ($userids as $p)
