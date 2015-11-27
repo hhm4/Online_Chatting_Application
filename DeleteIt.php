@@ -44,7 +44,7 @@ if($istextmsg)
 		 
 	 }
 	}
-
+   }
    else
   {  $response = array("Result"=> 1);  }
 
