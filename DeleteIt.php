@@ -36,7 +36,7 @@ if($istextmsg)
 	 echo PHP_EOL;
 	 $count=mysql_num_rows($chk);
 	 echo $count;
-	 if(count<=0 && $fromuserid!=$p)
+	 if(!(count>1) && $fromuserid!=$p)
 	 {
 		 $sql1=mysql_query("Select * from USERS where UserId='$p'",$con);
 		 $row = mysql_fetch_array($sql1, MYSQL_ASSOC);
