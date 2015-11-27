@@ -17,7 +17,7 @@ if ($count>0){
 	 $userinfo =$r1;
   }
    
-$query1="Select * From CONTACTS where CONTACTS_FROMUSERID ='$userid' AND IsAContact=1";
+$query1="Select * From CONTACTS where CONTACTS_FROMUSERID ='$userid'";
 $newvalues=mysql_query($query1,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
