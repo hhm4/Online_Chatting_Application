@@ -18,14 +18,13 @@ $istextmsg = $istextmsg === 'true'? true: false;
 if($istextmsg)
 {
    $query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,Message) values('{$chatroomid}','{$fromuserid}','{$message}')", $con);
-   echo (mysql_affected_rows());
-   if(!$query)
+   if(mysql_affected_rows()==1)
    {
 
-    $response = array("Result"=> 1); 	   }
+    $response = array("Result"=> 0); 	   }
 
    else
-  {  $response = array("Result"=> 0);  }
+  {  $response = array("Result"=> 1);  }
 
 }
 else
