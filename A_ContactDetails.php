@@ -29,8 +29,8 @@ $query="Select * From CONTACTS where Contacts_DateAdded > '$ldate' AND Contacts_
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
-     $rows['Contacts'][]=$r;
-	 $response= array("Result"=> 1,$rows);
+     $rows[]=$r;
+	 $response= array("Result"=> 1,"Contacts"=>$rows);
    }
 	
 }
