@@ -50,9 +50,10 @@ Contacts_FromUserId int(100) NOT NULL,
 Contacts_UserName varchar(100) NOT NULL,
 Contacts_EmailId varchar(100) NOT NULL,
 Contacts_Status int(1) NOT NULL DEFAULT 1,
-UserPictureLink varchar(100) DEFAULT NULL,
-StatusUpdate varchar(250) DEFAULT NULL,
+Contacts_UserPictureLink varchar(100) DEFAULT NULL,
+Contacts_StatusUpdate varchar(250) DEFAULT NULL,
 Contacts_DateAdded TimeStamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 LocalPath varchar(500) DEFAULT NULL,
+IsAContact int(1) DEFAULT 1,
 PRIMARY KEY (ContactId)
 );
