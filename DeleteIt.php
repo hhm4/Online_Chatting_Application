@@ -42,7 +42,7 @@ if($istextmsg)
 		 $row = mysql_fetch_array($sql1, MYSQL_ASSOC);
 		 $email=$row['EmailId'];
 		 echo $email;
-		 $sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status) values('{$p}','{$fromuserid}','{$email}','{$email}',1)", $con);
+		 $sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status) values('{$p}','{$fromuserid}','{$email}','{$email}',0)", $con);
 		 
 	 }
 	}
