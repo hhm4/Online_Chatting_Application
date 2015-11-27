@@ -31,7 +31,7 @@ $contactscount=mysql_num_rows($contactscheck);
    else
    {
 	$data=mysql_query(" Update CONTACTS SET IsAContact=1,Contacts_UserName='$ContactsName'  where ContactId='$contactid'",$con);
-	$response=array("Result"=>1);
+	$response=array("Result"=>0);
    }
 	
 }
