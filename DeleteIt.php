@@ -23,18 +23,7 @@ if($istextmsg)
 
     $response = array("Result"=> 0); 	
 	
-	$update = mysql_query("Select UserIds from CHATROOM_USERS where ChatRoomId='$chatroomid'",$con);
-	$row = mysql_fetch_array($update, MYSQL_ASSOC);
-    $userids=$row['UserIds'];
-	$userids= explode(";",$userids);
-    foreach ($userids as $p)
-    {
-	echo "Current id ".$p;
-	}
-
-
-
-
+	checknonexistinguser();
 	}
 
    else
@@ -62,6 +51,37 @@ else
 	{
 		print_r($_FILES);
 	}
+	
+}
+
+
+function checknonexistinguser()
+{
+	
+	$row = mysql_fetch_array($update, MYSQL_ASSOC);
+    $userids=$row['UserIds'];
+	$userids= explode(";",$userids);
+    foreach ($userids as $p)
+    {
+	 
+	 $chk= mysql_query("Select * from CONTACTS where Contacts_FromUserId='$fromuserid' AND Contacts_UserId='$p'",$con);)
+	 $count=mysql_num_rows($chk);
+	 echo $count;
+	 if(count<=0)
+	 {
+		 $sql1=mysql_query("Select * from USERS where UserId='$p'",$con);
+		 $row = mysql_fetch_array($sql1, MYSQL_ASSOC);
+		 $email=$row['EmailId'];
+		 echo $email;
+		 $sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status) values('{$p}','{$fromuserid}','{$email}','{$email}',1)", $con);
+		 
+	 }
+	}
+
+
+
+
+	
 	
 }
 
