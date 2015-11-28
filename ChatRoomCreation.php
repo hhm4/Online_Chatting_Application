@@ -8,13 +8,13 @@ if(!$con)
 }
 $dbCon=mysql_select_db($config['database'], $con);
 
-$groupchat=$_POST[IsGroupChat];
+$groupchat=(int)$_POST[IsGroupChat];
 $userids=$_POST[UserIds];
-$groupname=$_POST[GroupName1];
+$groupname=$_POST[GroupName];
 $chatroomid=$_POST[ChatRoomId];
 $isgroupchat = $groupchat === 'true'? true: false;
 
-if($isgroupchat)
+if($isgroupchat==1)
 {
 
    $query="Select max(ChatRoomId) From CHATROOM_USERS";
