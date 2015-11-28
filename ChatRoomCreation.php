@@ -16,12 +16,14 @@ $isgroupchat = $groupchat === 'true'? true: false;
 
 if($isgroupchat==1)
 {
-
+   echo "in";
    $query="Select max(ChatRoomId) From CHATROOM_USERS";
    $max=mysql_query($query,$con);
    $row = mysql_fetch_array($max, MYSQL_ASSOC);
    $maxroomid=$row['max(ChatRoomId)'];
+   echo $maxroomid;
    $grpchatroomid=$maxroomid < 1000000 ? 1000000: $maxroomid+1;
+   echo $grpchatroomid;
    $sql=mysql_query("Insert into CHATROOM_USERS(ChatRoomId,UserIds,IsGroupChat,GroupName) values('{$grpchatroomid}','{$userids}','{$isgroupchat}','{$groupname}')", $con);
    if(mysql_affected_rows()==1)
    {
