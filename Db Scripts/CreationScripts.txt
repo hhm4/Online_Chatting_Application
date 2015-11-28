@@ -76,3 +76,14 @@ Token int(100) NOT NULL,
 constraint  tokenverify_pk PRIMARY KEY (Id)
 );
 ALTER TABLE CONTACTS ADD CONSTRAINT uniq UNIQUE(Contacts_EmailId,Contacts_FromUserId);
+
+
+
+
+CREATE TABLE hhm4.ONLINEUSERS (
+
+Id int(100) NOT NULL AUTO_INCREMENT,
+UserId int(10) NOT NULL,
+constraint users_pk PRIMARY KEY (Id)
+);
+
