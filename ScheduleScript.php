@@ -11,7 +11,7 @@ set_time_limit(0);
 while (true)
 {
 $now=time();
-$sql=mysql_query("Update CONTACTS SET Contacts_Status=1", $con);
+$sql=mysql_query("Update CONTACTS SET Contacts_Status=0", $con);
 sleep($interval*60-(time()-$now));
 }
 ?>
