@@ -6,7 +6,7 @@ if(!$con)
 	print "Not connected";
 }
 $dbCon=mysql_select_db($config['database'], $con);
-$interval=60; //minutes
+$interval=1; //minutes
 set_time_limit(0);
 while (true)
 {
