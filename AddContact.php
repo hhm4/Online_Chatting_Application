@@ -19,12 +19,13 @@ if($count!=0)
 $row = mysql_fetch_array($registration, MYSQL_ASSOC);
 $userid=$row['UserId'];
 $userstatus=$row['UserStatus'];
+$statusupdate=$row['StatusUpdate'];
 $contactsquery="Select * From CONTACTS where Contacts_UserId='$userid' AND Contacts_FromUserId='$FromId'";
 $contactscheck=mysql_query($contactsquery,$con);
 $contactscount=mysql_num_rows($contactscheck);
   if($contactscount==0)
    {
-	$sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status) values('{$userid}','{$FromId}','{$ContactsName}','{$email}',1)", $con);
+	$sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status,Contacts_StatusUpdate) values('{$userid}','{$FromId}','{$ContactsName}','{$email}',1,'{$statusupdate}')", $con);
 	$response=array("Result"=>0);
    }
    else
