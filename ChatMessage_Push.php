@@ -57,6 +57,7 @@ else
 		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
 		if($moveBool==1)
 		{
+			$query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,MessageLink) values('{$chatroomid}','{$fromuserid}','{$store_dir}')", $con);
 			 $response = array("Result"=>0);
 		}
 		else
