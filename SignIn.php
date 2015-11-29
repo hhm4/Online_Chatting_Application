@@ -14,6 +14,9 @@ if ($count>0){
    while($r1 = mysql_fetch_assoc($authentication))
   {
 	 $userid=$r1['UserId'] ;
+	 $statusupdate=$r1['StatusUpdate'];
+	 $userpicturelink=$r1['UserPictureLink'];
+	 $username=$r1['UserName'];
 	 $userinfo =$r1;
   }
    
@@ -39,7 +42,7 @@ while($t = mysql_fetch_assoc($chatmessages))
      $chatmessagerows[]=$t;
    }
 
-    $response=array("Result"=>1,"UserId"=>$userid,"Users"=>$userinfo,"Contacts"=>$rows,"Chatroom"=>$chatroomrows,"Chatmessage"=>$chatmessagerows);
+    $response=array("Result"=>1,"UserId"=>$userid,"EmailId"=>$email,"UserName"=>$username,"StatusUpdate"=> $statusupdate,"UserPictureLink"=>$userpicturelink,"Users"=>$userinfo,"Contacts"=>$rows,"Chatroom"=>$chatroomrows,"Chatmessage"=>$chatmessagerows);
 	
 }
 else{
