@@ -12,6 +12,18 @@ $userid=$_POST['UserId'];
 $status=$_POST['StatusUpdate'];
 $query="Update USERS set StatusUpdate='$status' where UserId='$userid'";
 $check=mysql_query($query,$con);
+if(mysql_affected_rows)
+{
+	
+	$response=array("Result"=>0);
+	
+}
+
+else
+{
+	
+	$response=array("Result"=>1);
+}
 $encoded = json_encode($response);
 header('Content-type: application/json');
 echo $encoded;
