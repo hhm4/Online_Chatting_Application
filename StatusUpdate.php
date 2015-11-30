@@ -10,7 +10,7 @@ $dbCon=mysql_select_db($config['database'], $con);
 
 $userid=$_POST['UserId'];
 $status=$_POST['StatusUpdate'];
-$query="Update USERS set StatusUpdate='$status' where UserId='$userid'";
+$query="Update USERS set StatusUpdate='$status', UpdatedAt = null where UserId='$userid'";
 $check=mysql_query($query,$con);
 if(mysql_affected_rows)
 {
