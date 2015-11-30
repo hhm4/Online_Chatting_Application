@@ -17,6 +17,7 @@ if ($count>0){
 	 $statusupdate=$r1['StatusUpdate'];
 	 $userpicturelink=$r1['UserPictureLink'];
 	 $username=$r1['UserName'];
+	 $updatedat=$r1['UpdatedAt'];
 	 $userinfo =$r1;
   }
    
@@ -42,7 +43,7 @@ while($t = mysql_fetch_assoc($chatmessages))
      $chatmessagerows[]=$t;
    }
 
-    $response=array("Result"=>1,"UserId"=>$userid,"EmailId"=>$email,"UserName"=>$username,"StatusUpdate"=> $statusupdate,"UserPictureLink"=>$userpicturelink,"Users"=>$userinfo,"Contacts"=>$rows,"Chatroom"=>$chatroomrows,"Chatmessage"=>$chatmessagerows);
+    $response=array("Result"=>1,"UserId"=>$userid,"EmailId"=>$email,"UserName"=>$username,"StatusUpdate"=> $statusupdate,"UserPictureLink"=>$userpicturelink,"UpdatedAt"=>$updatedat, "Users"=>$userinfo,"Contacts"=>$rows,"Chatroom"=>$chatroomrows,"Chatmessage"=>$chatmessagerows);
 	
 }
 else{
