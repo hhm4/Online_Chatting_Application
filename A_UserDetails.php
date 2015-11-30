@@ -28,7 +28,7 @@ $query="Select * from USERS where UserId='$fromid' ";
 $newvalues=mysql_query($query,$con);
   while($r = mysql_fetch_assoc($newvalues))
   {
-     $rows[]=$r;
+     $rows=$r;
 	 $response= array("Result"=> 1,"UserDetails"=>$rows);
    }
 	
