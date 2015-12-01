@@ -14,7 +14,7 @@ $groupname=$_POST[GroupName];
 $chatroomid=$_POST[ChatRoomId];
 $isgroupchat = $groupchat === 'true'? true: false;
 
-if($isgroupchat==1)
+if($isgroupchat)
 {
    
    $query="Select max(ChatRoomId) From CHATROOM_USERS";
