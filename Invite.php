@@ -3,7 +3,7 @@
 $email=$_POST['EmailId'];
 
 $message = "
-<html><head><title>Invite to our Chat Application</title></head><body><p> Join our Exciting online Chat Application</p><table><tr><th>Please click the below link to join our exciting Chat application</th><th>www.onlinechat.com</th></tr><tr></tr>
+<html><head><title>Invite to our Chat Application</title></head><body><p> Link will be coming soon </p><table><tr><th>Please click the below link to join our exciting Chat application</th><th>www.onlinechat.com</th></tr><tr></tr>
 </table></body></html>
 ";
 $headers = "MIME-Version: 1.0" . "\r\n";
