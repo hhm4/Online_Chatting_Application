@@ -51,10 +51,8 @@ else
 {
 	if(is_uploaded_file($_FILES['userfile']['tmp_name']))
 	{
-		$dest = $_FILES['userfile']['tmp_name'];
-		echo $dest;
+		$dest = $_FILES['userfile']['name'];
 		$store_dir = $upload_dir_db.$fromuserid.$chatroomid.time().$dest;
-		echo $store_dir;
 		$moveBool = false;
 		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
 		if($moveBool==1)
