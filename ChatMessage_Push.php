@@ -75,7 +75,7 @@ else
 		                            $sql1=mysql_query("Select * from USERS where UserId='$p'",$con);
 		                            $row = mysql_fetch_array($sql1, MYSQL_ASSOC);
 		                            $email=$row['EmailId'];
-		                            $sql=mysql_query("Insert into CONTACTS                                            (Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status,IsAContact)   values('{$p}','{$fromuserid}','{$email}','{$email}',0,0)", $con);
+		                            $sql=mysql_query("Insert into CONTACTS(Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status,IsAContact)   values('{$p}','{$fromuserid}','{$email}','{$email}',0,0)", $con);
 		 
 	                                   }
 	                       }
