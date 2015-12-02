@@ -56,11 +56,12 @@ else
 		$store_dir = $upload_dir_db.$fromuserid.$chatroomid.time().$dest;
 		$moveBool = false;
 		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
+		echo $moveBool.move;
 		if($moveBool==1)
 		{
-			echo "in";
+			echo 'in';
 			$query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,MessageLink) values('{$chatroomid}','{$fromuserid}','{$store_dir}')", $con);
-			 echo "summa".mysql_affected_rows;
+			 echo 'summa'.mysql_affected_rows;
 			 if(mysql_affected_rows()==1)
                          {
                           $response = array("Result"=>0);
