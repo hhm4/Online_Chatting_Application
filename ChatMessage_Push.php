@@ -61,6 +61,7 @@ else
 		{
 			echo 'in';
 			$query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,MessageLink) values('{$chatroomid}','{$fromuserid}','{$store_dir}')", $con);
+<<<<<<< HEAD
 			 echo 'summa'.mysql_affected_rows;
 			 if(mysql_affected_rows()==1)
                          {
@@ -88,10 +89,13 @@ else
                          {
                              $response = array("Result"=> 1); 
                          }
+=======
+			 $response = array("Result"=>0);
+>>>>>>> parent of 2295c33... cxcxcxc
 		}
 		else
 		{
-			$response = array("Result"=> 1); 
+			$response = 1;
 		}
 	}
 	else
