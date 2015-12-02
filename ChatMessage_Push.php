@@ -58,11 +58,36 @@ else
 		if($moveBool==1)
 		{
 			$query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,MessageLink) values('{$chatroomid}','{$fromuserid}','{$store_dir}')", $con);
-			 $response = array("Result"=>0);
+			 if(mysql_affected_rows()==1)
+                         {
+                          $response = array("Result"=>0);
+                          $update = mysql_query("select UserIds from CHATROOM_USERS where ChatRoomId='$chatroomid'",$con);
+	                  $row = mysql_fetch_array($update, MYSQL_ASSOC);
+                          $userids=$row['UserIds'];
+	                  $userids= explode(";",$userids);
+                               foreach ($userids as $p)
+                               {
+	 
+	                  $chk= mysql_query("Select * from CONTACTS where Contacts_FromUserId='$fromuserid' AND Contacts_UserId='$p'",$con);
+	                  $count=mysql_num_rows($chk);
+	                                  if($count==0 && $fromuserid!=$p)
+	                                  {
+		                            $sql1=mysql_query("Select * from USERS where UserId='$p'",$con);
+		                            $row = mysql_fetch_array($sql1, MYSQL_ASSOC);
+		                            $email=$row['EmailId'];
+		                            $sql=mysql_query("Insert into CONTACTS                                            (Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status,IsAContact)                                                 values('{$p}','{$fromuserid}','{$email}','{$email}',0,0)", $con);
+		 
+	                                   }
+	                       }
+                         }
+                         else
+                         {
+                             $response = array("Result"=> 1); 
+                         }
 		}
 		else
 		{
-			$response = 1;
+			$response = array("Result"=> 1); 
 		}
 	}
 	else
