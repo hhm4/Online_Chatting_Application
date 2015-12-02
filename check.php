@@ -108,7 +108,7 @@ mysql_close();
 function compress_image($src, $dest , $quality) 
 {
     $info = getimagesize($src);
-  
+  echo 1;
     if ($info['mime'] == 'image/jpeg') 
     {
         $image = imagecreatefromjpeg($src);
