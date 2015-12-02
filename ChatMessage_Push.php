@@ -54,7 +54,9 @@ else
 		$dest = $_FILES['userfile']['name'];
 		$store_dir = $upload_dir_db.$fromuserid.$chatroomid.time().$dest;
 		$moveBool = false;
-		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
+                $store_dir1 = $upload_dir_db.$fromuserid.$fromuserid.$chatroomid.time().$dest;
+                $fname=compress_image($_FILES['userfile']['name'], $store_dir, 80);
+		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir1");
 		if($moveBool==1)
 		{
 			$query=mysql_query("Insert into CHATMESSAGES(ChatRoomId,FromUserId,MessageLink) values('{$chatroomid}','{$fromuserid}','{$store_dir}')", $con);
@@ -75,7 +77,7 @@ else
 		                            $sql1=mysql_query("Select * from USERS where UserId='$p'",$con);
 		                            $row = mysql_fetch_array($sql1, MYSQL_ASSOC);
 		                            $email=$row['EmailId'];
-		                            $sql=mysql_query("Insert into CONTACTS                                            (Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status,IsAContact)                                                 values('{$p}','{$fromuserid}','{$email}','{$email}',0,0)", $con);
+		                            $sql=mysql_query("Insert into CONTACTS                                            (Contacts_UserId,Contacts_FromUserId,Contacts_UserName,Contacts_EmailId,Contacts_Status,IsAContact)   values('{$p}','{$fromuserid}','{$email}','{$email}',0,0)", $con);
 		 
 	                                   }
 	                       }
@@ -92,7 +94,7 @@ else
 	}
 	else
 	{
-		print_r($_FILES);
+		$response = array("Result"=> 1); 
 	}
 	
 }
