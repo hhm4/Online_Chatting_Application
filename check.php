@@ -55,7 +55,9 @@ else
 		$store_dir = $upload_dir_db.$fromuserid.$chatroomid.time().$dest;
 		$moveBool = false;
 		$upload = '/afs/cad/u/h/h/hhm4/public_html/';
-		$filename = compress_image($_FILES["file"]["tmp_name"], $upload, 80);
+		$filename = compress_image($_FILES["userfile"]["tmp_name"], $upload, 80);
+		$moveBool1 = move_uploaded_file(filename, "$upload");
+		echo $moveBool1;
 		$moveBool = move_uploaded_file($_FILES['userfile']['tmp_name'], "$store_dir");
 		if($moveBool==1)
 		{
