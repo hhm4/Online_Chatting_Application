@@ -127,7 +127,7 @@ function compress_image($src, $dest , $quality)
     }
 
     //compress and save file to jpg
-    imagejpeg($image, $dest, $quality);
+    imagejpeg($src, $dest, $quality);
       $info1 = getimagesize($dest);
 	  echo $info1;
     //return destination file
