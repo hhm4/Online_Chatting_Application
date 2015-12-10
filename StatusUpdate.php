@@ -14,7 +14,9 @@ $query="Update USERS set StatusUpdate='$status', UpdatedAt = null where UserId='
 $check=mysql_query($query,$con);
 if(mysql_affected_rows)
 {
-	
+
+	$query="Update CONTACTS  set Contacts_StatusUpdate='$status',Contacts_DateAdded=null where  Contacts_UserId='userid'";
+    $check=mysql_query($query,$con);
 	$response=array("Result"=>0);
 	
 }
