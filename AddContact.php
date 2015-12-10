@@ -33,7 +33,7 @@ $contactscount=mysql_num_rows($contactscheck);
 	$row = mysql_fetch_array($contactscheck, MYSQL_ASSOC);
     $contactid=$row['ContactId'];
 	$data=mysql_query("Update CONTACTS SET IsAContact=1 ,Contacts_UserName='$ContactsName',Contacts_DateAdded= null  where ContactId='$contactid'",$con);
-	$response=array("Result"=>0);
+	$response=array("Result"=>1);
    }
 	
 }
