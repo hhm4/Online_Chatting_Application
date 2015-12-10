@@ -24,7 +24,7 @@ $query="Select * From UNVERIFIED_USERS where Token=$token AND EmailId='$email'";
 	$row = mysql_fetch_array($registration, MYSQL_ASSOC);
 	 $name=$row['UserName'];
 	 $pass=$row['User_Password'];
-	 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password) values('{$name}','{$email}','{$pass}')", $con);
+	 $sql=mysql_query("Insert into USERS(UserName,EmailId,User_Password,StatusUpdate,UserPictureLink) values('{$name}','{$email}','{$pass}','','')", $con);
 	 $delete=mysql_query("Delete FROM UNVERIFIED_USERS where EmailId='$email'",$con);
 	  $response=array("Result"=>1);
  }
